@@ -1,20 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import "@fontsource-variable/montserrat";
-import "@fontsource-variable/roboto-mono";
-import { Icon } from "astro-icon";
+import Title from "../components/Title.astro";
 ---
 
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
-	<main class="flex flex-col items-center justify-center h-screen bg-[#13151a]">
-		<h1 class="text-white text-lg font-roboto">Coming soon</h1>
-		<div class="flex gap-2">
-			<a href="https://www.github.com/ushiradineth" class="h-6 w-6 text-white">
-				<Icon name="mdi:github" />
-			</a>
-			<a href="https://www.linkedin.com/in/ushiradineth" class="h-6 w-6 text-white">
-				<Icon name="mdi:linkedin" />
-			</a>
+	<main class="flex flex-col gap-8 min-w-[50%] xl:w-[980px] md:w-[700px] sm:w-[300px]">
+		<!-- temporary -->
+		<Title>Hey, I'm Ushira 👋</Title>
+		<p>
+			Full Stack Engineer focused on building products with extra attention to detail from UI/UX to Infrastructure and everything in
+			between.
+		</p>
+		<p>
+			As a Full Stack Software Engineer, I have successfully taken part in multiple project learning and understanding how software is built
+			from end to end. Currently, I work mostly with TypeScript, NextJS, Terraform and Kuberentes. I have over an year of experience in
+			working with client projects.
+		</p>
+		<div class="grid grid-flow-row grid-cols-3 gap-4">
+			{
+				new Array(12).fill(0).map((_, index) => {
+					return <img class="block rounded-sm object-cover w-full h-full" src={`/src/images/${index + 1}.jpeg`} alt="" />;
+				})
+			}
 		</div>
 	</main>
 </Layout>

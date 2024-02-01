@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Title from "../components/Title.astro";
+import Icon from "astro-icon";
+---
+
+<Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
+	<main class="flex flex-col gap-8 min-w-[50%] xl:w-[980px] md:w-[700px] sm:w-[300px]">
+		<!-- temporary -->
+		<Title>Blog</Title>
+		<div class="flex flex-col gap-2">
+			<p>I will be writing blog posts about these topics soon.</p>
+			<ul class="list-disc pl-8">
+				<li>GitOps on Kubernetes with ArgoCD</li>
+				<li>Automating SemVer2 Versioning on CI with Bash Scripts</li>
+				<li>Bitnami Sealed Secrets</li>
+				<li>Automating Sealing Secrets on CI</li>
+			</ul>
+		</div>
+		<!-- <div class="flex w-full items-center justify-between">
+			<Icon class="w-12 h-12" name="simple-icons:typescript" />
+			<Icon class="w-12 h-12" name="simple-icons:kubernetes" />
+			<Icon class="w-12 h-12" name="simple-icons:docker" />
+			<Icon class="w-12 h-12" name="simple-icons:go" />
+			<Icon class="w-12 h-12" name="simple-icons:rust" />
+		</div> -->
+	</main>
+</Layout>

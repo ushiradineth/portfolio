@@ -1,0 +1,26 @@
+---
+import Underline from "./Underline.astro";
+interface Props {
+	company: string;
+	position: string;
+	period: string;
+	href: string;
+}
+
+const { company, position, period, href } = Astro.props;
+---
+
+<div>
+	<div class="flex flex-col border-border border-t pt-8 pb-4">
+		<a href={href} class="group w-fit">
+			<Underline>
+				<span class="flex items-center justify-center gap-2">
+					<h2 class="font-medium text-xl">{company}</h2>
+					<div class="transform transition-transform duration-500 ease-in-out group-hover:-rotate-12">&rarr;</div>
+				</span>
+			</Underline>
+		</a>
+		<p class="text-muted">{position} • {period}</p>
+	</div>
+	<slot />
+</div>

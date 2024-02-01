@@ -1,0 +1,17 @@
+---
+import Underline from "./Underline.astro";
+const currentPath = Astro.url.pathname;
+const underline = "underline underline-offset-8";
+
+interface Props {
+	href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a href={href} class={currentPath === href ? underline : "group"}>
+	<Underline>
+		<slot />
+	</Underline>
+</a>

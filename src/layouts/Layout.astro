@@ -1,4 +1,9 @@
 ---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "@fontsource-variable/montserrat";
+import "@fontsource-variable/roboto-mono";
+
 interface Props {
 	title: string;
 	description: string;
@@ -16,8 +21,29 @@ const { title, description } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<style is:global>
+			:root {
+				--background: #ffffff;
+				--text: black;
+				--card: #2a2630;
+				--border: #c7c7c7;
+				--muted: #5b555a;
+			}
+
+			.dark {
+				--background: #0f0f0f;
+				--text: white;
+				--card: #2a2630;
+				--border: #5b555a;
+				--muted: #c7c7c7;
+			}
+		</style>
 	</head>
-	<body>
-		<slot />
+	<body class="flex flex-col items-center bg-background text-text font-light tracking-tight font-sans">
+		<main class="flex flex-col p-4 gap-8 h-screen max-w-[1024px]">
+			<Header />
+			<slot />
+			<Footer />
+		</main>
 	</body>
 </html>

@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Title from "../components/Title.astro";
+import Job from "../components/Job.astro";
+import List from "../components/List.astro";
+---
+
+<Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
+	<main class="flex flex-col gap-8 min-w-[50%]">
+		<Title>Work</Title>
+		<Job company="Surge Global" href="https://surge.global" position="Associate Software Engineer" period="September 2023 - Present">
+			<List>
+				<li>
+					Played a pivotal role in transitioning the existing infrastructure of the Hello Tiger dating app to an AWS EKS Kubernetes cluster,
+					utilizing Terraform for efficient infrastructure management, resulting in a significant improvement in system scalability and cost
+					efficiency.
+				</li>
+				<li>
+					Contributed to the design of the infrastructure, ensuring it aligned with specific project requirements, optimizing performance,
+					and reliability.
+				</li>
+				<li>
+					Implemented a comprehensive suite of monitoring and observability tools, including Istio, Prometheus, Grafana, Kiali, and Jaeger,
+					to enable real-time system tracking and tracing, ensuring a smooth and reliable user experience.
+				</li>
+				<li>
+					Managed and maintained database solutions efficiently by integrating Elasticsearch and the PostgreSQL operator for self-hosted
+					databases, enhancing data control and scalability.
+				</li>
+				<li>
+					Introduced GitOps practices using ArgoCD and Helm charts to automate deployment processes, guaranteeing consistency and efficiency
+					in managing infrastructure and applications on the AWS EKS Kubernetes cluster.
+				</li>
+			</List>
+		</Job>
+	</main>
+	<Job company="Surge Global" href="https://surge.global" position="Software Engineering Intern" period="March 2023 - August 2023">
+		<List>
+			<li>Enhanced the StudyRooms online tuition platform by improving the UI, and implementing OTP verifications through SNS.</li>
+			<li>
+				Played a pivotal role in migrating StudyRooms to AWS EKS Kubernetes using Terraform, significantly enhancing scalability and cost
+				efficiency.
+			</li>
+			<li>
+				Implemented a real-time monitoring and tracing system using Prometheus, Grafana, Kiali, and Jaeger for enhanced system
+				observability.
+			</li>
+			<li>
+				Utilized a self-hosted approach with Elasticsearch, MongoDB Ops Manager, and the PostgreSQL operator for efficient data management,
+				scaling, and cost reduction.
+			</li>
+			<li>
+				Led an individual project, SubM, a Subscription Management Platform, which involved a diverse skill set in technologies like React
+				Native, NextJS, TypeScript, and Terraform.
+			</li>
+			<li>
+				Gained experience in full-stack development, DevOps, and various technologies such as Kubernetes, AWS, Docker, GraphQL, and more
+				during the internship.
+			</li>
+		</List>
+	</Job>
+</Layout>
