@@ -1,6 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
+import { Image } from "astro:assets";
+
+import one from "../images/1.jpeg";
+import two from "../images/2.jpeg";
+import three from "../images/3.jpeg";
+import four from "../images/4.jpeg";
+import five from "../images/5.jpeg";
+import six from "../images/6.jpeg";
+import seven from "../images/7.jpeg";
+import eight from "../images/8.jpeg";
+import nine from "../images/9.jpeg";
+import ten from "../images/10.jpeg";
+import eleven from "../images/11.jpeg";
+import twelwe from "../images/12.jpeg";
 ---
 
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
@@ -17,11 +31,19 @@ import Title from "../components/Title.astro";
 			working with client projects.
 		</p>
 		<div class="grid grid-flow-row grid-cols-3 gap-4">
-			{
-				new Array(12).fill(0).map((_, index) => {
-					return <img class="block rounded-sm object-cover w-full h-full" src={`/${index + 1}.jpeg`} alt="" />;
-				})
-			}
+			<!-- unfortunatly this is necessary -->
+			<Image class="block rounded-sm object-cover w-full h-full" src={one} alt="one" />
+			<Image class="block rounded-sm object-cover w-full h-full" src={two} alt="two" />
+			<Image class="block rounded-sm object-cover w-full h-full" src={three} alt="three" />
+			<Image class="block rounded-sm object-cover w-full h-full" src={four} alt="four" />
+			<Image class="block rounded-sm object-cover w-full h-full" src={five} alt="five" />
+			<Image class="block rounded-sm object-cover w-full h-full" src={six} alt="six" />
+			<Image class="block rounded-sm object-cover w-full h-full" src={seven} alt="seven" />
+			<Image class="block rounded-sm object-cover w-full h-full" src={eight} alt="eight" />
+			<Image class="block rounded-sm object-cover w-full h-full" src={nine} alt="nine" />
+			<Image class="block rounded-sm object-cover w-full h-full" src={ten} alt="ten" />
+			<Image class="block rounded-sm object-cover w-full h-full" src={eleven} alt="eleven" />
+			<Image class="block rounded-sm object-cover w-full h-full" src={twelwe} alt="twelwe" />
 		</div>
 	</main>
 </Layout>
