@@ -15,6 +15,21 @@ import nine from "../images/9.jpeg";
 import ten from "../images/10.jpeg";
 import eleven from "../images/11.jpeg";
 import twelwe from "../images/12.jpeg";
+
+const images = [
+	{ src: one, alt: "Tea Castle" },
+	{ src: two, alt: "River infront of a mountain" },
+	{ src: three, alt: "Picture through a speedboat of a river" },
+	{ src: four, alt: "Hike pathway" },
+	{ src: five, alt: "Tall tree" },
+	{ src: six, alt: "Tall trees" },
+	{ src: seven, alt: "Overlooking road from a mountain" },
+	{ src: eight, alt: "Person standing infront of a waterfall" },
+	{ src: nine, alt: "Grassland with mist" },
+	{ src: ten, alt: "Waterfall" },
+	{ src: eleven, alt: "Grassland with a small waterfall" },
+	{ src: twelwe, alt: "Strawberry flavored sweets" },
+];
 ---
 
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
@@ -31,19 +46,11 @@ import twelwe from "../images/12.jpeg";
 			working with client projects.
 		</p>
 		<div class="grid grid-flow-row grid-cols-3 gap-4">
-			<!-- unfortunatly this is necessary -->
-			<Image class="block rounded-sm object-cover w-full h-full" src={one} alt="one" />
-			<Image class="block rounded-sm object-cover w-full h-full" src={two} alt="two" />
-			<Image class="block rounded-sm object-cover w-full h-full" src={three} alt="three" />
-			<Image class="block rounded-sm object-cover w-full h-full" src={four} alt="four" />
-			<Image class="block rounded-sm object-cover w-full h-full" src={five} alt="five" />
-			<Image class="block rounded-sm object-cover w-full h-full" src={six} alt="six" />
-			<Image class="block rounded-sm object-cover w-full h-full" src={seven} alt="seven" />
-			<Image class="block rounded-sm object-cover w-full h-full" src={eight} alt="eight" />
-			<Image class="block rounded-sm object-cover w-full h-full" src={nine} alt="nine" />
-			<Image class="block rounded-sm object-cover w-full h-full" src={ten} alt="ten" />
-			<Image class="block rounded-sm object-cover w-full h-full" src={eleven} alt="eleven" />
-			<Image class="block rounded-sm object-cover w-full h-full" src={twelwe} alt="twelwe" />
+			{
+				images.map((image) => (
+					<Image class="block rounded-sm object-cover w-full h-full" src={image.src} loading={"eager"} alt={image.alt} />
+				))
+			}
 		</div>
 	</main>
 </Layout>
