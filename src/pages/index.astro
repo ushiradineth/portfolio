@@ -19,7 +19,7 @@ import Title from "../components/Title.astro";
 		<div class="grid grid-flow-row grid-cols-3 gap-4">
 			{
 				new Array(12).fill(0).map((_, index) => {
-					return <img class="block rounded-sm object-cover w-full h-full" src={`/src/images/${index + 1}.jpeg`} alt="" />;
+					return <img class="block rounded-sm object-cover w-full h-full" src={`/${index + 1}.jpeg`} alt="" />;
 				})
 			}
 		</div>
