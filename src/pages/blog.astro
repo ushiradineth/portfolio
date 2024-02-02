@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
+import List from "../components/List.astro";
 ---
 
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
@@ -9,12 +10,12 @@ import Title from "../components/Title.astro";
 		<Title>Blog</Title>
 		<div class="flex flex-col gap-2">
 			<p>I will be writing blog posts about these topics soon.</p>
-			<ul class="list-disc pl-8">
+			<List>
 				<li>GitOps on Kubernetes with ArgoCD</li>
 				<li>Automating SemVer2 Versioning on CI with Bash Scripts</li>
 				<li>Bitnami Sealed Secrets</li>
 				<li>Automating Sealing Secrets on CI</li>
-			</ul>
+			</List>
 		</div>
 		<!-- <div class="flex w-full items-center justify-between">
 			<Icon class="w-12 h-12" name="simple-icons:typescript" />

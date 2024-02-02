@@ -7,9 +7,10 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				background: "var(--background)",
-				text: "var(--text)",
-				card: "var(--card)",
+				primary: "var(--primary)",
+				"primary-foreground": "var(--primary-foreground)",
+				secondary: "var(--secondary)",
+				"secondary-foreground": "var(--secondary-foreground)",
 				border: "var(--border)",
 				muted: "var(--muted)",
 			},
