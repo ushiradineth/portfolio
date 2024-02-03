@@ -20,19 +20,23 @@ const { blog } = Astro.props;
 	<div
 		class="flex flex-col gap-2 w-full border-2 border-transparent group-hover:border-border border-opacity-0 duration-500 transition-all rounded-lg group-hover:px-2 py-4 group-hover:border-opacity-100">
 		<div class="flex">
-			<p class="flex items-center justify-center gap-2 font-semibold">
-				{blog.title}
+			<div class="flex items-start md:items-center justify-start gap-2 font-semibold w-full">
+				<p class="flex max-w-[65%] w-fit h-full gap-2">
+					{blog.title}{
+						blog.link && (
+							<Icon class="w-5 h-5 group-hover:opacity-100 opacity-25 duration-500 transition-opacity" name="akar-icons:link-out" />
+						)
+					}
+				</p>
 				{
-					!blog.link ? (
+					!blog.link && (
 						<div class="ml-auto">
 							<Badge>Coming Soon</Badge>
 						</div>
-					) : (
-						<Icon class="w-5 h-5 group-hover:opacity-100 opacity-25 duration-500 transition-opacity" name="akar-icons:link-out" />
 					)
 				}
-			</p>
-			{blog.date && <p class="ml-auto text-muted">{blog.date.toDateString()}</p>}
+				{blog.date && <p class="ml-auto text-muted w-fit">{blog.date.toDateString()}</p>}
+			</div>
 		</div>
 
 		<div slot="badges" class="flex flex-wrap items-center justify-start gap-1">
