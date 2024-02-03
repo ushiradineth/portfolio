@@ -2,27 +2,34 @@
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
 import List from "../components/List.astro";
+import BlogItem from "../components/BlogItem.astro";
+import { type blogType } from "../components/BlogItem.astro";
+
+const blogs: blogType[] = [
+	{
+		title: "GitOps for Kuberenetes with ArgoCD",
+		tags: ["GitOps", "ArgoCD", "Terrafrom", "CI/CD"],
+	},
+	{
+		title: "Automated Semantic Versioning with CI",
+		link: "https://medium.com/@ushiradineth/automated-semantic-versioning-with-ci-7a331ee4e22f",
+		date: new Date(2024, 2 - 1, 3),
+		tags: ["GitFlow", "Git", "Semantic Versioning", "Bash", "CI/CD"],
+	},
+];
 ---
 
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
 	<main class="flex flex-col gap-8 min-w-[50%] xl:w-[980px] md:w-[700px] sm:w-[300px]">
-		<!-- temporary -->
 		<Title>Blog</Title>
 		<div class="flex flex-col gap-2">
 			<p>I will be writing blog posts about these topics soon.</p>
 			<List>
-				<li>GitOps on Kubernetes with ArgoCD</li>
-				<li>Automating SemVer2 Versioning on CI with Bash Scripts</li>
+				<li>AWS Load Balancers for Kubernetes + Setup</li>
 				<li>Bitnami Sealed Secrets</li>
-				<li>Automating Sealing Secrets on CI</li>
 			</List>
 		</div>
-		<!-- <div class="flex w-full items-center justify-between">
-			<Icon class="w-12 h-12" name="simple-icons:typescript" />
-			<Icon class="w-12 h-12" name="simple-icons:kubernetes" />
-			<Icon class="w-12 h-12" name="simple-icons:docker" />
-			<Icon class="w-12 h-12" name="simple-icons:go" />
-			<Icon class="w-12 h-12" name="simple-icons:rust" />
-		</div> -->
+
+		{blogs.map((blog) => <BlogItem blog={blog} />)}
 	</main>
 </Layout>
