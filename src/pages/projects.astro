@@ -8,7 +8,19 @@ import IconLinkSet from "../components/IconLinkSet.astro";
 import { Icon } from "astro-icon";
 import Badge from "../components/Badge.astro";
 
-const projects = [
+type project = {
+	title: string;
+	period: string;
+	designation: string;
+	technologies: string[];
+	description: string;
+	links: {
+		logo: string;
+		href: string;
+	}[];
+};
+
+const projects: project[] = [
 	{
 		title: "Hello Tiger",
 		period: "September 2023 - January 2023",
