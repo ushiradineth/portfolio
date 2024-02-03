@@ -29,6 +29,8 @@ const blogs: blogType[] = [
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
 	<main class="flex flex-col gap-8 min-w-[50%] xl:w-[980px] md:w-[700px] sm:w-[300px]">
 		<Title>Blog</Title>
-		{blogs.map((blog) => <BlogItem blog={blog} />)}
+		<div>
+			{blogs.map((blog) => <BlogItem blog={blog} />)}
+		</div>
 	</main>
 </Layout>

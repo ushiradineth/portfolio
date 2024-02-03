@@ -16,27 +16,27 @@ interface Props {
 const { blog } = Astro.props;
 ---
 
-<a
-	href={blog.link ?? "javascript:;"}
-	target={blog.link ? "_blank" : "_self"}
-	class="group flex flex-col gap-2 w-full border rounded-sm border-border px-2 py-4 hover:border-secondary">
-	<div class="flex">
-		<p class="flex gap-2 font-semibold">
-			{blog.title}
-			{
-				!blog.link ? (
-					<div class="ml-auto">
-						<Badge>Coming Soon</Badge>
-					</div>
-				) : (
-					<Icon class="w-5 h-5 group-hover:opacity-100 opacity-25 duration-500 transition-opacity" name="akar-icons:link-out" />
-				)
-			}
-		</p>
-		{blog.date && <p class="ml-auto text-muted">{blog.date.toDateString()}</p>}
-	</div>
+<a href={blog.link ?? "javascript:;"} target={blog.link ? "_blank" : "_self"} class="group">
+	<div
+		class="flex flex-col gap-2 w-full border border-white border-opacity-0 duration-500 transition-all rounded-lg px-2 py-4 group-hover:border-opacity-100">
+		<div class="flex">
+			<p class="flex gap-2 font-semibold">
+				{blog.title}
+				{
+					!blog.link ? (
+						<div class="ml-auto">
+							<Badge>Coming Soon</Badge>
+						</div>
+					) : (
+						<Icon class="w-5 h-5 group-hover:opacity-100 opacity-25 duration-500 transition-opacity" name="akar-icons:link-out" />
+					)
+				}
+			</p>
+			{blog.date && <p class="ml-auto text-muted">{blog.date.toDateString()}</p>}
+		</div>
 
-	<div slot="badges" class="flex flex-wrap items-center justify-start gap-1">
-		{blog.tags.map((tag) => <Badge>{tag}</Badge>)}
+		<div slot="badges" class="flex flex-wrap items-center justify-start gap-1">
+			{blog.tags.map((tag) => <Badge>{tag}</Badge>)}
+		</div>
 	</div>
 </a>
