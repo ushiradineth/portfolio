@@ -18,9 +18,9 @@ const { blog } = Astro.props;
 
 <a href={blog.link ?? "javascript:;"} target={blog.link ? "_blank" : "_self"} class="group">
 	<div
-		class="flex flex-col gap-2 w-full border border-white border-opacity-0 duration-500 transition-all rounded-lg px-2 py-4 group-hover:border-opacity-100">
+		class="flex flex-col gap-2 w-full border-2 border-transparent group-hover:border-border border-opacity-0 duration-500 transition-all rounded-lg group-hover:px-2 py-4 group-hover:border-opacity-100">
 		<div class="flex">
-			<p class="flex gap-2 font-semibold">
+			<p class="flex items-center justify-center gap-2 font-semibold">
 				{blog.title}
 				{
 					!blog.link ? (
