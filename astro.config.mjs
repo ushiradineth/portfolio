@@ -9,5 +9,6 @@ import vercelStatic from "@astrojs/vercel/static";
 export default defineConfig({
 	integrations: [react(), tailwind(), sitemap(), robotsTxt()],
 	output: "static",
+	site: 'https://ushira.com',
 	adapter: vercelStatic(),
 });
