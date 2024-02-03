@@ -1,1 +1,1 @@
-# Portfolio website made with Astro and Hosted on Vercel
+- Portfolio website made with Astro and Hosted on Vercel
