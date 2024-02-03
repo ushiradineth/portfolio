@@ -1,14 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
-import List from "../components/List.astro";
 import BlogItem from "../components/BlogItem.astro";
 import { type blogType } from "../components/BlogItem.astro";
 
 const blogs: blogType[] = [
 	{
+		title: "Bitnami Sealed Secrets + Automating through CI",
+		tags: ["GitOps", "ArgoCD", "Terrafrom", "Kubernetes", "CI/CD"],
+	},
+	{
+		title: "AWS Load Balancers for Kubernetes + Setup",
+		tags: ["AWS", "Load Balancing", "Terrafrom", "Kubernetes"],
+	},
+	{
 		title: "GitOps for Kuberenetes with ArgoCD",
-		tags: ["GitOps", "ArgoCD", "Terrafrom", "CI/CD"],
+		tags: ["GitOps", "ArgoCD", "Terrafrom", "Kubernetes", "CI/CD"],
 	},
 	{
 		title: "Automated Semantic Versioning with CI",
@@ -22,14 +29,6 @@ const blogs: blogType[] = [
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
 	<main class="flex flex-col gap-8 min-w-[50%] xl:w-[980px] md:w-[700px] sm:w-[300px]">
 		<Title>Blog</Title>
-		<div class="flex flex-col gap-2">
-			<p>I will be writing blog posts about these topics soon.</p>
-			<List>
-				<li>AWS Load Balancers for Kubernetes + Setup</li>
-				<li>Bitnami Sealed Secrets</li>
-			</List>
-		</div>
-
 		{blogs.map((blog) => <BlogItem blog={blog} />)}
 	</main>
 </Layout>
