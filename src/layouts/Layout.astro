@@ -24,25 +24,25 @@ const { title, description } = Astro.props;
 		<title>{title}</title>
 		<style is:global>
 			:root {
-				--primary: #ffffff;
-				--primary-foreground: #121212;
-				--secondary: #121212;
-				--secondary-foreground: #ffffff;
-				--border: #c7c7c7;
-				--muted: #5b555a;
+				--primary: #f7fcfe;
+				--primary-foreground: #474a4d;
+				--secondary: #474a4d;
+				--secondary-foreground: #f7fcfe;
+				--border: #474a4d;
+				--muted: #80989b;
 			}
 
 			.dark {
 				--primary: #121212;
-				--primary-foreground: #ffffff;
-				--secondary: #ffffff;
+				--primary-foreground: #f3f3f2;
+				--secondary: #f3f3f2;
 				--secondary-foreground: #121212;
-				--border: #5b555a;
-				--muted: #c7c7c7;
+				--border: #f3f3f2;
+				--muted: #80989b;
 			}
 		</style>
 	</head>
-	<body class="flex flex-col items-center bg-primary text-primary-foreground font-light tracking-tight font-sans">
+	<body class="flex flex-col items-center bg-primary text-primary-foreground tracking-tight font-roboto">
 		<main class="flex flex-col p-4 md:gap-8 gap-4 h-screen max-w-[1024px]">
 			<Header />
 			<slot />
