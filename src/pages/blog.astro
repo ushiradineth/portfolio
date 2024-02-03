@@ -24,6 +24,14 @@ const blogs: blogType[] = [
 		tags: ["GitFlow", "Git", "Semantic Versioning", "Bash", "CI/CD"],
 	},
 ];
+
+function border(index: number) {
+	if (index !== blogs.length - 1) {
+		return " border-b ";
+	}
+
+	return "";
+}
 ---
 
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
@@ -32,7 +40,7 @@ const blogs: blogType[] = [
 		<div class="flex flex-col gap-4 md:gap-0">
 			{
 				blogs.map((blog, index) => (
-					<div class={`${index !== blogs.length - 1 && "border-b"}`}>
+					<div class={`${border(index)}`}>
 						<BlogItem blog={blog} />
 					</div>
 				))
