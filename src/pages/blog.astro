@@ -29,8 +29,14 @@ const blogs: blogType[] = [
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
 	<main class="flex flex-col gap-8 md:w-[700px]">
 		<Title>Blog</Title>
-		<div>
-			{blogs.map((blog) => <BlogItem blog={blog} />)}
+		<div class="flex flex-col gap-4 md:gap-0">
+			{
+				blogs.map((blog, index) => (
+					<div class={`${index !== blogs.length - 1 && "border-b"}`}>
+						<BlogItem blog={blog} />
+					</div>
+				))
+			}
 		</div>
 	</main>
 </Layout>
