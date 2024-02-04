@@ -2,13 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
 import Project from "../components/Project.astro";
-import List from "../components/List.astro";
-import IconLink from "../components/IconLink.astro";
-import IconLinkSet from "../components/IconLinkSet.astro";
-import { Icon } from "astro-icon";
-import Badge from "../components/Badge.astro";
+import { border } from "./blog.astro";
 
-type project = {
+export type Project = {
 	title: string;
 	period: string;
 	designation: string;
@@ -20,7 +16,7 @@ type project = {
 	}[];
 };
 
-const projects: project[] = [
+const projects: Project[] = [
 	{
 		title: "Hello Tiger",
 		period: "September 2023 - January 2023",
@@ -134,24 +130,10 @@ const projects: project[] = [
 	<main class="flex flex-col min-w-[50%]">
 		<Title>Projects</Title>
 		{
-			projects.map((project) => (
-				<Project title={project.title} designation={project.designation} period={project.period}>
-					<div slot="badges" class="flex flex-wrap items-center justify-start gap-2">
-						{project.technologies.map((technology) => (
-							<Badge>{technology}</Badge>
-						))}
-					</div>
-					<IconLinkSet slot="links">
-						{project.links.map((link) => (
-							<IconLink href={link.href}>
-								<Icon name={link.logo} />
-							</IconLink>
-						))}
-					</IconLinkSet>
-					<List>
-						<li>{project.description}</li>
-					</List>
-				</Project>
+			projects.map((project, index) => (
+				<div class={`${border(index, projects.length)} border-muted border-dashed py-8`}>
+					<Project project={project} />
+				</div>
 			))
 		}
 	</main>
