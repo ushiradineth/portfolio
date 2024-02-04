@@ -37,10 +37,10 @@ function border(index: number) {
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
 	<main class="flex flex-col gap-4 xl:w-[1000px] md:w-[700px]">
 		<Title>Blog</Title>
-		<div class="flex flex-col gap-4 md:gap-0">
+		<div class="flex flex-col gap-4 md:gap-0 group/main">
 			{
 				blogs.map((blog, index) => (
-					<div class={`${border(index)}`}>
+					<div class={`${border(index)} border-muted border-dashed group-hover/main:border-primary transition-all duration-500`}>
 						<BlogItem blog={blog} />
 					</div>
 				))
