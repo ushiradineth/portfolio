@@ -2,9 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
 import BlogItem from "../components/BlogItem.astro";
-import { type blogType } from "../components/BlogItem.astro";
+import { type Blog } from "../components/BlogItem.astro";
 
-const blogs: blogType[] = [
+const blogs: Blog[] = [
 	{
 		title: "Bitnami Sealed Secrets + Automating through CI",
 		tags: ["GitOps", "ArgoCD", "Terrafrom", "Kubernetes", "CI/CD"],
@@ -25,8 +25,8 @@ const blogs: blogType[] = [
 	},
 ];
 
-function border(index: number) {
-	if (index !== blogs.length - 1) {
+export function border(index: number, length: number) {
+	if (index !== length - 1) {
 		return " border-b ";
 	}
 
@@ -40,7 +40,8 @@ function border(index: number) {
 		<div class="flex flex-col gap-4 md:gap-0 group/main">
 			{
 				blogs.map((blog, index) => (
-					<div class={`${border(index)} border-muted border-dashed group-hover/main:border-primary transition-all duration-500`}>
+					<div
+						class={`${border(index, blogs.length)} border-muted border-dashed group-hover/main:border-primary transition-all duration-500`}>
 						<BlogItem blog={blog} />
 					</div>
 				))

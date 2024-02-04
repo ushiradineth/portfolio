@@ -2,7 +2,7 @@
 import Icon from "astro-icon";
 import Badge from "./Badge.astro";
 
-export type blogType = {
+export type Blog = {
 	title: string;
 	tags: string[];
 	link?: string;
@@ -10,7 +10,7 @@ export type blogType = {
 };
 
 interface Props {
-	blog: blogType;
+	blog: Blog;
 }
 
 const { blog } = Astro.props;
