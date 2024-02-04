@@ -37,11 +37,14 @@ export function border(index: number, length: number) {
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
 	<main class="flex flex-col gap-4 xl:w-[1000px] md:w-[700px]">
 		<Title>Blog</Title>
-		<div class="flex flex-col gap-4 md:gap-0 group/main">
+		<div class="flex flex-col group/main">
 			{
 				blogs.map((blog, index) => (
 					<div
-						class={`${border(index, blogs.length)} border-muted border-dashed group-hover/main:border-primary transition-all duration-500`}>
+						class={`${border(
+							index,
+							blogs.length,
+						)} py-2 md:py-0 border-muted border-dashed group-hover/main:border-primary transition-all duration-500`}>
 						<BlogItem blog={blog} />
 					</div>
 				))
