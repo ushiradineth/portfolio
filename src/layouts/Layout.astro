@@ -10,6 +10,8 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const pathname = `${Astro.url.pathname === "/" ? "index" : Astro.url.pathname.substring(0, Astro.url.pathname.length - 1)}`;
+const ogImage = `${Astro.site}/og/${pathname}.png`;
 
 const { title, description } = Astro.props;
 ---
@@ -26,11 +28,12 @@ const { title, description } = Astro.props;
 		<link rel="canonical" href={canonicalURL} />
 
 		<meta property="og:title" content={title} />
-		<meta property="og:image" content={`${Astro.site}/og/${Astro.url.pathname}.png`} />
+		<meta property="og:image" content={ogImage} />
 		<meta property="og:type" content="article" />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:description" content={description} />
 		<meta property="og:locale" content="en_GB" />
+
 		<title>{title}</title>
 		<style is:global>
 			:root {
