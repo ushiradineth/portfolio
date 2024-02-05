@@ -9,6 +9,8 @@ interface Props {
 	description: string;
 }
 
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
 const { title, description } = Astro.props;
 ---
 
@@ -20,6 +22,15 @@ const { title, description } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="canonical" href={canonicalURL} />
+
+		<meta property="og:title" content={title} />
+		<meta property="og:image" content={`${Astro.site}/og/${Astro.url.pathname}.png`} />
+		<meta property="og:type" content="article" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:description" content={description} />
+		<meta property="og:locale" content="en_GB" />
 		<title>{title}</title>
 		<style is:global>
 			:root {
