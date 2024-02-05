@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
 import BlogItem from "../components/BlogItem.astro";
 import { type Blog } from "../components/BlogItem.astro";
+import { border } from "../lib/utils.ts";
 
 const blogs: Blog[] = [
 	{
@@ -24,14 +25,6 @@ const blogs: Blog[] = [
 		tags: ["GitFlow", "Git", "Semantic Versioning", "Bash", "CI/CD"],
 	},
 ];
-
-export function border(index: number, length: number) {
-	if (index !== length - 1) {
-		return " border-b ";
-	}
-
-	return "";
-}
 ---
 
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
