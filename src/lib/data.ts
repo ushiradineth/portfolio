@@ -1,4 +1,4 @@
-import type { Blog, ImageCollection, Job, Project } from "./types";
+import type { ImageCollection, Project, Job, Blog } from "./types";
 
 import one from "../images/gallery/1.jpeg";
 import two from "../images/gallery/2.jpeg";
