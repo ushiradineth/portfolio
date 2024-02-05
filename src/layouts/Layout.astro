@@ -57,6 +57,15 @@ const { title, description } = Astro.props;
 				--border: #f3f3f2;
 				--muted: #80989b;
 			}
+
+			.no-scrollbar::-webkit-scrollbar {
+				display: none;
+			}
+
+			.no-scrollbar {
+				-ms-overflow-style: none; /* IE and Edge */
+				scrollbar-width: none; /* Firefox */
+			}
 		</style>
 	</head>
 	<body class="flex flex-col items-center bg-primary text-primary-foreground tracking-tight font-roboto">
