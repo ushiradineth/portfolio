@@ -33,6 +33,10 @@ const { title, description } = Astro.props;
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:description" content={description} />
 		<meta property="og:locale" content="en_GB" />
+		<meta property="twitter:image" content={ogImage} />
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
 
 		<title>{title}</title>
 		<style is:global>
