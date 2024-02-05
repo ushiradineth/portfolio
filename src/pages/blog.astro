@@ -1,27 +1,47 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
+import BlogItem from "../components/BlogItem.astro";
+import { type Blog } from "../components/BlogItem.astro";
+import { border } from "../lib/utils.ts";
+
+const blogs: Blog[] = [
+	{
+		title: "Bitnami Sealed Secrets + Automating through CI",
+		tags: ["GitOps", "ArgoCD", "Terrafrom", "Kubernetes", "CI/CD"],
+	},
+	{
+		title: "AWS Load Balancers for Kubernetes + Setup",
+		tags: ["AWS", "Load Balancing", "Terrafrom", "Kubernetes"],
+	},
+	{
+		title: "GitOps for Kuberenetes with ArgoCD",
+		tags: ["GitOps", "ArgoCD", "Terrafrom", "Kubernetes", "CI/CD"],
+	},
+	{
+		title: "Automated Semantic Versioning with CI",
+		link: "https://medium.com/@ushiradineth/automated-semantic-versioning-with-ci-7a331ee4e22f",
+		date: new Date(2024, 2 - 1, 3),
+		tags: ["GitFlow", "Git", "Semantic Versioning", "Bash", "CI/CD"],
+	},
+];
 ---
 
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
-	<main class="flex flex-col gap-8 min-w-[50%] xl:w-[980px] md:w-[700px] sm:w-[300px]">
-		<!-- temporary -->
+	<main class="flex flex-col gap-4 xl:w-[1000px] md:w-[700px]">
 		<Title>Blog</Title>
-		<div class="flex flex-col gap-2">
-			<p>I will be writing blog posts about these topics soon.</p>
-			<ul class="list-disc pl-8">
-				<li>GitOps on Kubernetes with ArgoCD</li>
-				<li>Automating SemVer2 Versioning on CI with Bash Scripts</li>
-				<li>Bitnami Sealed Secrets</li>
-				<li>Automating Sealing Secrets on CI</li>
-			</ul>
+		<div class="flex flex-col group/main">
+			{
+				blogs.map((blog, index) => (
+					<div
+						class={`${border(
+							index,
+							blogs.length,
+						)} py-2 md:py-0 border-muted border-dashed group-hover/main:border-primary transition-all duration-500`}>
+						<BlogItem blog={blog} />
+					</div>
+				))
+			}
 		</div>
-		<!-- <div class="flex w-full items-center justify-between">
-			<Icon class="w-12 h-12" name="simple-icons:typescript" />
-			<Icon class="w-12 h-12" name="simple-icons:kubernetes" />
-			<Icon class="w-12 h-12" name="simple-icons:docker" />
-			<Icon class="w-12 h-12" name="simple-icons:go" />
-			<Icon class="w-12 h-12" name="simple-icons:rust" />
-		</div> -->
 	</main>
 </Layout>

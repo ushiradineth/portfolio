@@ -1,21 +1,38 @@
 ---
+import Icon from "astro-icon";
+import type { Project } from "../pages/projects.astro";
+import IconLink from "./IconLink.astro";
+import IconLinkSet from "./IconLinkSet.astro";
+import List from "./List.astro";
+import Badge from "./Badge.astro";
+
 interface Props {
-	title: string;
-	designation: string;
-	period: string;
+	project: Project;
 }
 
-const { title, designation, period } = Astro.props;
+const { project } = Astro.props;
 ---
 
 <div>
-	<div class="flex flex-col border-border border-t pt-8 pb-4 gap-1">
+	<div class="flex flex-col border-border pb-4 gap-1">
 		<div class="flex items-center justify-center gap-2 w-fit">
-			<h2 class="font-medium text-xl">{title}</h2>
-			<slot name="links" />
+			<h2 class="font-medium text-xl">{project.title}</h2>
+			<IconLinkSet slot="links">
+				{
+					project.links.map((link) => (
+						<IconLink href={link.href}>
+							<Icon name={link.logo} />
+						</IconLink>
+					))
+				}
+			</IconLinkSet>
 		</div>
-		<p class="text-muted">{designation} • {period}</p>
-		<slot name="badges" />
+		<p class="text-muted">{project.designation} • {project.period}</p>
+		<div class="flex flex-wrap gap-2">
+			{project.technologies.map((technology) => <Badge>{technology}</Badge>)}
+		</div>
 	</div>
-	<slot />
+	<List>
+		<li>{project.description}</li>
+	</List>
 </div>

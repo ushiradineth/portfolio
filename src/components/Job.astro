@@ -1,26 +1,27 @@
 ---
+import type { Job } from "../pages/work.astro";
+import List from "./List.astro";
 import Underline from "./Underline.astro";
 interface Props {
-	company: string;
-	position: string;
-	period: string;
-	href: string;
+	job: Job;
 }
 
-const { company, position, period, href } = Astro.props;
+const { job } = Astro.props;
 ---
 
-<div>
-	<div class="flex flex-col border-border border-t pt-8 pb-4">
-		<a href={href} class="group w-fit">
+<div class="flex flex-col gap-2">
+	<div class="flex flex-col border-border">
+		<a href={job.href} class="group w-fit">
 			<Underline>
 				<span class="flex items-center justify-center gap-2">
-					<h2 class="font-medium text-xl">{company}</h2>
+					<h2 class="font-medium text-xl">{job.company}</h2>
 					<div class="transform transition-transform duration-500 ease-in-out group-hover:-rotate-12">&rarr;</div>
 				</span>
 			</Underline>
 		</a>
-		<p class="text-muted">{position} • {period}</p>
+		<p class="text-muted">{job.designation} • {job.period}</p>
 	</div>
-	<slot />
+	<List>
+		{job.points.map((point) => <li>{point}</li>)}
+	</List>
 </div>

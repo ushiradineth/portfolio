@@ -2,13 +2,21 @@
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
 import Project from "../components/Project.astro";
-import List from "../components/List.astro";
-import IconLink from "../components/IconLink.astro";
-import IconLinkSet from "../components/IconLinkSet.astro";
-import { Icon } from "astro-icon";
-import Badge from "../components/Badge.astro";
+import { border } from "../lib/utils.ts";
 
-const projects = [
+export type Project = {
+	title: string;
+	period: string;
+	designation: string;
+	technologies: string[];
+	description: string;
+	links: {
+		logo: string;
+		href: string;
+	}[];
+};
+
+const projects: Project[] = [
 	{
 		title: "Hello Tiger",
 		period: "September 2023 - January 2023",
@@ -16,7 +24,7 @@ const projects = [
 		technologies: [
 			"Terraform",
 			"AWS",
-			"Kubernetes (AWS EKS)",
+			"Kubernetes",
 			"Docker",
 			"Keycloak",
 			"PostgreSQL",
@@ -37,19 +45,7 @@ const projects = [
 		title: "Studyrooms",
 		period: "March 2023 - August 2023",
 		designation: "Surge Global",
-		technologies: [
-			"TypeScript",
-			"NextJS",
-			"NestJS",
-			"GraphQL",
-			"MongoDB",
-			"Terraform",
-			"AWS",
-			"Kubernetes (AWS EKS)",
-			"Keycloak",
-			"Docker",
-			"Jest",
-		],
+		technologies: ["TypeScript", "NextJS", "NestJS", "GraphQL", "MongoDB", "Terraform", "AWS", "Kubernetes", "Keycloak", "Docker", "Jest"],
 		description:
 			"An online tuition platform that provides a wide variety of courses and access to skilled tutors, catering to a diverse range of learners.",
 		links: [
@@ -99,7 +95,7 @@ const projects = [
 		title: "Celiao",
 		period: "December 2022 - February 2023",
 		designation: "University",
-		technologies: ["Java", "Android Studio", "Firebase Firestore", "Firebase Storage", "Javax Mail"],
+		technologies: ["Java", "Android Studio", "Firebase", "Javax Mail"],
 		description: "A Vehicle Rental Application with User, Booking and other management systems.",
 		links: [{ logo: "mdi:github", href: "https://github.com/ushiradineth/carApp" }],
 	},
@@ -131,27 +127,13 @@ const projects = [
 ---
 
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
-	<main class="flex flex-col gap-8 min-w-[50%]">
+	<main class="flex flex-col min-w-[50%]">
 		<Title>Projects</Title>
 		{
-			projects.map((project) => (
-				<Project title={project.title} designation={project.designation} period={project.period}>
-					<div slot="badges" class="flex flex-wrap items-center justify-start gap-2">
-						{project.technologies.map((technology) => (
-							<Badge>{technology}</Badge>
-						))}
-					</div>
-					<IconLinkSet slot="links">
-						{project.links.map((link) => (
-							<IconLink href={link.href}>
-								<Icon name={link.logo} />
-							</IconLink>
-						))}
-					</IconLinkSet>
-					<List>
-						<li>{project.description}</li>
-					</List>
-				</Project>
+			projects.map((project, index) => (
+				<div class={`${border(index, projects.length)} border-muted border-dashed py-8`}>
+					<Project project={project} />
+				</div>
 			))
 		}
 	</main>

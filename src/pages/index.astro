@@ -17,23 +17,23 @@ import eleven from "../images/11.jpeg";
 import twelwe from "../images/12.jpeg";
 
 const images = [
-	{ src: one, alt: "Tea Castle" },
-	{ src: two, alt: "River infront of a mountain" },
-	{ src: three, alt: "Picture through a speedboat of a river" },
-	{ src: four, alt: "Hike pathway" },
-	{ src: five, alt: "Tall tree" },
-	{ src: six, alt: "Tall trees" },
-	{ src: seven, alt: "Overlooking road from a mountain" },
-	{ src: eight, alt: "Person standing infront of a waterfall" },
-	{ src: nine, alt: "Grassland with mist" },
-	{ src: ten, alt: "Waterfall" },
-	{ src: eleven, alt: "Grassland with a small waterfall" },
-	{ src: twelwe, alt: "Strawberry flavored sweets" },
+	{ file: one, alt: "Tea Castle" },
+	{ file: two, alt: "River infront of a mountain" },
+	{ file: three, alt: "Picture through a speedboat of a river" },
+	{ file: four, alt: "Hike pathway" },
+	{ file: five, alt: "Tall tree" },
+	{ file: six, alt: "Tall trees" },
+	{ file: seven, alt: "Overlooking road from a mountain" },
+	{ file: eight, alt: "Person standing infront of a waterfall" },
+	{ file: nine, alt: "Grassland with mist" },
+	{ file: ten, alt: "Waterfall" },
+	{ file: eleven, alt: "Grassland with a small waterfall" },
+	{ file: twelwe, alt: "Strawberry flavored sweets" },
 ];
 ---
 
 <Layout title="Ushira Dineth" description="Portfolio by Ushira Dineth">
-	<main class="flex flex-col gap-8 min-w-[50%] xl:w-[980px] md:w-[700px] sm:w-[300px]">
+	<main class="flex flex-col gap-8 min-w-[50%]">
 		<!-- temporary -->
 		<Title>Hey, I'm Ushira 👋</Title>
 		<p>
@@ -45,10 +45,19 @@ const images = [
 			from end to end. Currently, I work mostly with TypeScript, NextJS, Terraform and Kuberentes. I have over an year of experience in
 			working with client projects.
 		</p>
-		<div class="grid grid-flow-row grid-cols-3 gap-4">
+		<div class="grid grid-flow-row grid-cols-3 gap-2 md:gap-4">
 			{
-				images.map((image) => (
-					<Image class="block rounded-sm object-cover w-full h-full" src={image.src} loading={"eager"} alt={image.alt} />
+				images.map((image, index) => (
+					<Image
+						class={`block rounded-sm object-cover w-full h-full hover:scale-105 ${
+							index % 2 === 0 ? "hover:rotate-1" : "hover:-rotate-1"
+						} transition-all duration-500`}
+						src={image.file}
+						width={image.file.width}
+						height={image.file.height}
+						format={image.file.format}
+						alt={image.alt}
+					/>
 				))
 			}
 		</div>
