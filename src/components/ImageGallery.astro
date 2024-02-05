@@ -13,7 +13,7 @@ const { images } = Astro.props;
 	{
 		images.map((image, index) => (
 			<Image
-				class={`block rounded-sm object-cover w-full h-full hover:scale-105 ${
+				class={`block rounded-lg object-fill w-full h-full hover:scale-105 ${
 					index % 2 === 0 ? "hover:rotate-1" : "hover:-rotate-1"
 				} transition-all duration-500`}
 				src={image.file}

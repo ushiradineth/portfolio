@@ -16,11 +16,7 @@ const { blog } = Astro.props;
 		<div class="flex">
 			<div class="flex items-start md:items-center justify-start gap-2 font-semibold w-full">
 				<h2 class="flex max-w-[65%] w-fit h-full gap-2">
-					{blog.title}{
-						blog.link && (
-							<Icon class="w-5 h-5 group-hover:opacity-100 opacity-25 duration-500 transition-opacity" name="akar-icons:link-out" />
-						)
-					}
+					{blog.title}{blog.link ? <p class="text-green-500">•</p> : <p class="text-yellow-500">•</p>}
 				</h2>
 				{
 					!blog.link && (
