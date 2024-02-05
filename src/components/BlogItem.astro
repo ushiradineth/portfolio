@@ -1,13 +1,7 @@
 ---
 import Icon from "astro-icon";
 import Badge from "./Badge.astro";
-
-export type Blog = {
-	title: string;
-	tags: string[];
-	link?: string;
-	date?: Date;
-};
+import type { Blog } from "../lib/types";
 
 interface Props {
 	blog: Blog;
