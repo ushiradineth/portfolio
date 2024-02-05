@@ -13,6 +13,14 @@ import ten from "../images/gallery/10.jpeg";
 import eleven from "../images/gallery/11.jpeg";
 import twelwe from "../images/gallery/12.jpeg";
 
+import hellotiger from "../images/projects/hello-tiger.png";
+import studyrooms from "../images/projects/studyrooms.png";
+import subm from "../images/projects/subm.png";
+import clonegram from "../images/projects/clonegram.png";
+import celiao from "../images/projects/celiao.png";
+
+import surge from "../images/work/surge-global.png";
+
 export const images: ImageCollection[] = [
 	{ file: one, alt: "Tea Castle" },
 	{ file: two, alt: "River infront of a mountain" },
@@ -31,6 +39,7 @@ export const images: ImageCollection[] = [
 export const projects: Project[] = [
 	{
 		title: "Hello Tiger",
+		icon: hellotiger,
 		period: "September 2023 - January 2023",
 		designation: "Surge Global",
 		technologies: [
@@ -55,6 +64,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: "Studyrooms",
+		icon: studyrooms,
 		period: "March 2023 - August 2023",
 		designation: "Surge Global",
 		technologies: ["TypeScript", "NextJS", "NestJS", "GraphQL", "MongoDB", "Terraform", "AWS", "Kubernetes", "Keycloak", "Docker", "Jest"],
@@ -69,6 +79,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: "SubM",
+		icon: subm,
 		period: "March 2023 - August 2023",
 		designation: "University",
 		technologies: [
@@ -93,6 +104,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: "Clonegram",
+		icon: clonegram,
 		period: "December 2022 - February 2023",
 		designation: "Personal",
 		technologies: ["TypeScript", "NextJS", "TailwindCSS", "Prisma", "tRPC", "Vercel"],
@@ -105,6 +117,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: "Celiao",
+		icon: celiao,
 		period: "December 2022 - February 2023",
 		designation: "University",
 		technologies: ["Java", "Android Studio", "Firebase", "Javax Mail"],
@@ -116,6 +129,7 @@ export const projects: Project[] = [
 export const jobs: Job[] = [
 	{
 		company: "Surge Global",
+		icon: surge,
 		href: "https://surge.global",
 		designation: "Associate Software Engineer",
 		period: "September 2023 - Present",
@@ -129,6 +143,7 @@ export const jobs: Job[] = [
 	},
 	{
 		company: "Surge Global",
+		icon: surge,
 		href: "https://surge.global",
 		designation: "Software Engineering Intern",
 		period: "March 2023 - August 2023",

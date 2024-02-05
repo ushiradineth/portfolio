@@ -5,6 +5,7 @@ export type ImageCollection = {
 
 export type Project = {
 	title: string;
+	icon: ImageMetadata;
 	period: string;
 	designation: string;
 	technologies: string[];
@@ -17,6 +18,7 @@ export type Project = {
 
 export type Job = {
 	company: string;
+	icon: ImageMetadata;
 	href: string;
 	designation: string;
 	period: string;

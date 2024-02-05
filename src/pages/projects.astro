@@ -9,12 +9,8 @@ import { projects } from "../lib/data";
 <Layout title="Projects" description="ushira.com">
 	<main class="flex flex-col min-w-[50%]">
 		<Title>Projects</Title>
-		{
-			projects.map((project, index) => (
-				<div class={`${border(index, projects.length)} border-muted border-dashed py-8`}>
-					<Project project={project} />
-				</div>
-			))
-		}
+		<div class="grid md:grid-cols-3 mt-8 gap-2">
+			{projects.map((project) => <Project project={project} />)}
+		</div>
 	</main>
 </Layout>
