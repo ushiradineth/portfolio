@@ -4,7 +4,7 @@ import IconLink from "./IconLink.astro";
 import IconLinkSet from "./IconLinkSet.astro";
 import Badge from "./Badge.astro";
 import type { Project } from "../lib/types";
-import { Image } from "astro:assets";
+import RoundedIcon from "./RoundedIcon.astro";
 
 interface Props {
 	project: Project;
@@ -15,16 +15,7 @@ const { project } = Astro.props;
 
 <div class="flex gap-2 flex-col w-full flex-wrap border border-border border-dashed hover:border-dotted h-full rounded-lg p-4 group">
 	<div class="flex gap-4 mb-2">
-		<div class="rounded-full bg-primary-foreground w-fit h-fit p-4">
-			<Image
-				class="block rounded-lg object-cover w-10 h-10 drop-shadow-xl group-hover:scale-110 transition-all duration-500"
-				src={project.icon}
-				width={project.icon.width}
-				height={project.icon.height}
-				format={project.icon.format}
-				alt={project.title}
-			/>
-		</div>
+		<RoundedIcon icon={project.icon} alt={project.title} />
 
 		<div class="flex flex-col gap-2 h-full items-start justify-center font-medium text-xl">
 			<h2>

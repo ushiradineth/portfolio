@@ -1,15 +1,22 @@
 ---
 import { Icon } from "astro-icon";
 import IconLink from "./IconLink.astro";
+import { SocialLinks } from "../lib/data";
 ---
 
-<div class="flex flex-col w-full items-center justify-center mt-auto border-border border-t-2 border-dashed">
+<div class="flex flex-col w-full items-center justify-center mt-auto bg-primary border-border border-t">
 	<div class="flex w-full items-center justify-center gap-2 my-2">
-		<IconLink href="https://www.github.com/ushiradineth" target="_blank">
+		<IconLink href={SocialLinks.get("Github")!} target="_blank">
 			<Icon name="mdi:github" />
 		</IconLink>
-		<IconLink href="https://www.linkedin.com/in/ushiradineth" target="_blank">
+		<IconLink href={SocialLinks.get("Twitter")!} target="_blank">
+			<Icon name="mdi:twitter" />
+		</IconLink>
+		<IconLink href={SocialLinks.get("LinkedIn")!} target="_blank">
 			<Icon name="mdi:linkedin" />
+		</IconLink>
+		<IconLink href={SocialLinks.get("Medium")!} target="_blank">
+			<Icon name="simple-icons:medium" />
 		</IconLink>
 		<IconLink href="https://cv.ushira.com" target="_blank">
 			<p class="flex items-center justify-center text-sm font-bold">CV</p>
