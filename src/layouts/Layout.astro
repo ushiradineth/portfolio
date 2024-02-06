@@ -43,8 +43,8 @@ const { title, description } = Astro.props;
 			:root {
 				--primary: #f7fcfe;
 				--primary-foreground: #474a4d;
-				--secondary: #474a4d;
-				--secondary-foreground: #f7fcfe;
+				--secondary: #e5e4e6;
+				--secondary-foreground: #121212;
 				--border: #474a4d;
 				--muted: #80989b;
 			}
@@ -52,17 +52,17 @@ const { title, description } = Astro.props;
 			.dark {
 				--primary: #121212;
 				--primary-foreground: #f3f3f2;
-				--secondary: #f3f3f2;
+				--secondary: #e5e4e6;
 				--secondary-foreground: #121212;
 				--border: #f3f3f2;
 				--muted: #80989b;
 			}
 
-			.no-scrollbar::-webkit-scrollbar {
+			.hide-scrollbar::-webkit-scrollbar {
 				display: none;
 			}
 
-			.no-scrollbar {
+			.hide-scrollbar {
 				-ms-overflow-style: none; /* IE and Edge */
 				scrollbar-width: none; /* Firefox */
 			}
