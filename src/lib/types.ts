@@ -31,3 +31,10 @@ export type Blog = {
 	link?: string;
 	date?: Date;
 };
+
+export type Social = {
+	title: string;
+	href: string;
+	description: string;
+	icon: string;
+}

@@ -1,0 +1,25 @@
+---
+import type { Social } from "../lib/types";
+import Icon from "astro-icon";
+
+interface Props {
+	social: Social;
+}
+
+const { social } = Astro.props;
+---
+
+<li class="list-none group h-full w-full text-secondary-foreground">
+	<a href={social.href} class="flex flex-col w-full p-6 rounded-md bg-secondary">
+		<div class="flex items-center justify-center w-full">
+			<div class="flex items-center justify-center gap-2">
+				<h2 class="text-xl font-semibold">
+					{social.title}
+				</h2>
+				<p class="font-light"><Icon name={social.icon} class="w-5 h-5" /><p class="text-green-500">•</p></p>
+			</div>
+			<div class="ml-auto transform transition-transform duration-300 group-hover:-rotate-12">&rarr;</div>
+		</div>
+		<p>{social.description}</p>
+	</a>
+</li>

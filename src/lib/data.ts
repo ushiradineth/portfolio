@@ -1,4 +1,4 @@
-import type { ImageCollection, Project, Job, Blog } from "./types";
+import type { ImageCollection, Project, Job, Blog, Social } from "./types";
 
 import one from "../images/gallery/1.jpeg";
 import two from "../images/gallery/2.jpeg";
@@ -176,5 +176,33 @@ export const blogs: Blog[] = [
 		link: "https://medium.com/@ushiradineth/automated-semantic-versioning-with-ci-7a331ee4e22f",
 		date: new Date(2024, 2 - 1, 3),
 		tags: ["GitFlow", "Git", "Semantic Versioning", "Bash", "CI/CD"],
+	},
+];
+
+export const SocialLinks = new Map<"Twitter" | "LinkedIn" | "Medium" | "Github", string>([
+	["Twitter", "https://www.twitter.com/ushiradineth"],
+	["LinkedIn", "https://www.linkedin.com/in/ushiradineth"],
+	["Medium", "https://www.medium.com/@ushiradineth"],
+	["Github", "https://www.github.com/ushiradineth"],
+]);
+
+export const socials: Social[] = [
+	{
+		title: "Twitter",
+		description: "I barely post on Twitter but hope to use it soon",
+		href: SocialLinks.get("Twitter")!,
+		icon: "mdi:twitter",
+	},
+	{
+		title: "LinkedIn",
+		description: "I occasionally use LinkedIn as well",
+		href: SocialLinks.get("LinkedIn")!,
+		icon: "mdi:linkedin",
+	},
+	{
+		title: "Medium",
+		description: "I occasionally write blog posts",
+		href: SocialLinks.get("Medium")!,
+		icon: "simple-icons:medium",
 	},
 ];
