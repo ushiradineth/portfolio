@@ -9,11 +9,11 @@ interface Props {
 const { images } = Astro.props;
 ---
 
-<div class="grid grid-flow-row grid-cols-3 gap-2 md:gap-4">
+<div class="flex gap-2 md:gap-4 overflow-scroll overflow-x-visible hide-scrollbar">
 	{
 		images.map((image, index) => (
 			<Image
-				class={`block rounded-lg object-fill w-full h-full hover:scale-105 ${
+				class={`block rounded-lg object-cover w-40 h-40 hover:scale-105 my-4 ${
 					index % 2 === 0 ? "hover:rotate-1" : "hover:-rotate-1"
 				} transition-all duration-500`}
 				src={image.file}
