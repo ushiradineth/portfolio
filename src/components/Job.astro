@@ -22,9 +22,10 @@ const { job } = Astro.props;
 					</span>
 				</Underline>
 			</a>
-			<p class="text-muted">{job.designation} • {job.period}</p>
+			<p class="text-muted hidden sm:block">{job.designation} • {job.period}</p>
 		</div>
 	</div>
+	<p class="text-muted sm:hidden">{job.designation} • {job.period}</p>
 	<List>
 		{job.points.map((point) => <li>{point}</li>)}
 	</List>

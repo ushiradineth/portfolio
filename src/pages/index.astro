@@ -12,7 +12,7 @@ import self from "../images/self.png";
 <Layout title="Hey, I'm Ushira 👋" description="ushira.com">
 	<main class="flex flex-col gap-8 min-w-[50%]">
 		<Title>Hey, I'm Ushira 👋</Title>
-		<div class="flex gap-60">
+		<div class="flex flex-col-reverse md:flex-row gap-8 md:gap-60">
 			<span class="flex flex-col gap-2">
 				<p>
 					I'm a full stack software engineer focused on building products with extra attention to detail from UI/UX to Infrastructure and everything in between.
@@ -21,7 +21,7 @@ import self from "../images/self.png";
 				<p>Currently, I work with TypeScript, NextJS, Terraform and Kuberentes.</p>
 				<p>I'm currently learning Go!</p>
 			</span>
-			<Image src={self} alt={"Ushira Dineth"} class={"rounded-lg h-52 w-52"} />
+			<Image src={self} alt={"Ushira Dineth"} class={"rounded-lg w-52 h-52"} />
 		</div>
 		<span class="flex ml-auto">
 			<ImageGallery images={images} />
@@ -29,7 +29,7 @@ import self from "../images/self.png";
 
 		<p>Below are the other places you can find me;</p>
 
-		<div class="grid grid-cols-3 justify-between gap-2 h-fit">
+		<div class="grid md:grid-cols-3 justify-between gap-2 h-fit w-full">
 			{socials.map((social) => <SocialCard social={social} />)}
 		</div>
 	</main>
