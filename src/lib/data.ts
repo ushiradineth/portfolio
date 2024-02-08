@@ -58,8 +58,12 @@ export const projects: Project[] = [
 		description:
 			"A faster, safer, and hassle-free dating app prioritizing user satisfaction and safety for a top-notch online dating experience.",
 		links: [
-			{ logo: "ion:logo-apple", href: "https//:apps.apple.com/lk/app/hello-tiger-dating-app-chat/id1575544065" },
-			{ logo: "ion:logo-android", href: "https//:play.google.com/store/apps/details?id=com.appello.hellotiger&hl=en" },
+			{ label: "Apple Store", logo: "ion:logo-apple", href: "https//:apps.apple.com/lk/app/hello-tiger-dating-app-chat/id1575544065" },
+			{
+				label: "Google Play Store",
+				logo: "ion:logo-android",
+				href: "https//:play.google.com/store/apps/details?id=com.appello.hellotiger&hl=en",
+			},
 		],
 	},
 	{
@@ -72,6 +76,7 @@ export const projects: Project[] = [
 			"An online tuition platform that provides a wide variety of courses and access to skilled tutors, catering to a diverse range of learners.",
 		links: [
 			{
+				label: "Website",
 				logo: "mdi:web",
 				href: "https://studyrooms.com",
 			},
@@ -97,9 +102,9 @@ export const projects: Project[] = [
 		],
 		description: "A Subscription management platform for businesses and users, connecting subscriptions, consumers, and providers.",
 		links: [
-			{ logo: "ion:logo-android", href: "https://github.com/ushiradineth/subapp/releases" },
-			{ logo: "mdi:web", href: "https://subm.ushira.com" },
-			{ logo: "mdi:github", href: "https://github.com/ushiradineth/subm" },
+			{ label: "Android APK", logo: "ion:logo-android", href: "https://github.com/ushiradineth/subapp/releases" },
+			{ label: "Website", logo: "mdi:web", href: "https://subm.ushira.com" },
+			{ label: "GitHub", logo: "mdi:github", href: "https://github.com/ushiradineth/subm" },
 		],
 	},
 	{
@@ -111,8 +116,8 @@ export const projects: Project[] = [
 		description:
 			"A website replicating Instagram built with TypeScript, NextJS, Prisma. Website hosted on Vercel. Database and Storage hosted on Supabase.",
 		links: [
-			{ logo: "mdi:web", href: "https://clonegram.ushira.com" },
-			{ logo: "mdi:github", href: "https://github.com/ushiradineth/clonegram" },
+			{ label: "Website", logo: "mdi:web", href: "https://clonegram.ushira.com" },
+			{ label: "GitHub", logo: "mdi:github", href: "https://github.com/ushiradineth/clonegram" },
 		],
 	},
 	{
@@ -122,7 +127,7 @@ export const projects: Project[] = [
 		designation: "University",
 		technologies: ["Java", "Android Studio", "Firebase", "Javax Mail"],
 		description: "A Vehicle Rental Application with User, Booking and other management systems.",
-		links: [{ logo: "mdi:github", href: "https://github.com/ushiradineth/carApp" }],
+		links: [{ label: "GitHub", logo: "mdi:github", href: "https://github.com/ushiradineth/carApp" }],
 	},
 ];
 

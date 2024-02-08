@@ -11,6 +11,7 @@ export type Project = {
 	technologies: string[];
 	description: string;
 	links: {
+		label: string;
 		logo: string;
 		href: string;
 	}[];

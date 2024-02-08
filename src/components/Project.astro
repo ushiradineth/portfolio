@@ -24,7 +24,7 @@ const { project } = Astro.props;
 			<IconLinkSet>
 				{
 					project.links.map((link) => (
-						<IconLink href={link.href}>
+						<IconLink label={link.href} href={link.href}>
 							<Icon name={link.logo} />
 						</IconLink>
 					))
