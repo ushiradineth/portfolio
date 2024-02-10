@@ -58,11 +58,11 @@ export const projects: Project[] = [
 		description:
 			"A faster, safer, and hassle-free dating app prioritizing user satisfaction and safety for a top-notch online dating experience.",
 		links: [
-			{ label: "Apple Store", logo: "ion:logo-apple", href: "https//:apps.apple.com/lk/app/hello-tiger-dating-app-chat/id1575544065" },
+			{ label: "Apple Store", logo: "ion:logo-apple", href: "https://apps.apple.com/lk/app/hello-tiger-dating-app-chat/id1575544065" },
 			{
 				label: "Google Play Store",
 				logo: "ion:logo-android",
-				href: "https//:play.google.com/store/apps/details?id=com.appello.hellotiger&hl=en",
+				href: "https://play.google.com/store/apps/details?id=com.appello.hellotiger&hl=en",
 			},
 		],
 	},
@@ -139,11 +139,12 @@ export const jobs: Job[] = [
 		designation: "Associate Software Engineer",
 		period: "September 2023 - Present",
 		points: [
-			"Played a pivotal role in transitioning the existing infrastructure of the Hello Tiger dating app to an AWS EKS Kubernetes cluster, utilizing Terraform for efficient infrastructure management, resulting in a significant improvement in system scalability and cost	efficiency.",
+			"Led a team to orchestrate the migration of the Hello Tiger infrastructure to an AWS EKS Kubernetes cluster. This initiative yielded substantial improvements in system scalability and cost-efficiency.",
 			"Contributed to the design of the infrastructure, ensuring it aligned with specific project requirements, optimizing performance,	and reliability.",
-			"Implemented a comprehensive suite of monitoring and observability tools, including Istio, Prometheus, Grafana, Kiali, and Jaeger,	to enable real-time system tracking and tracing, ensuring a smooth and reliable user experience.",
+			"Contributed to educating colleagues at Surge Global on Kubernetes, ArgoCD, CI/CD, and more through conducting informative sessions and writing insightful blog posts.",
+			"Implemented a comprehensive suite of monitoring and observability tools, including Istio, Prometheus, Grafana, Kiali, and Jaeger, to enable real-time system tracking and tracing, ensuring a smooth and reliable user experience.",
 			"Managed and maintained database solutions efficiently by integrating ElasticSearch and the PostgreSQL operator for self-hosted databases, enhancing data control and scalability.",
-			"Introduced GitOps practices using ArgoCD and Helm charts to automate deployment processes, guaranteeing consistency and efficiency	in managing infrastructure and applications on the AWS EKS Kubernetes cluster.",
+			"Introduced GitOps practices using ArgoCD and Helm charts to automate deployment process, guaranteeing consistency and efficiency in managing infrastructure and applications on the Kubernetes cluster.",
 		],
 	},
 	{
@@ -153,10 +154,11 @@ export const jobs: Job[] = [
 		designation: "Software Engineering Intern",
 		period: "March 2023 - August 2023",
 		points: [
-			"Enhanced the StudyRooms online tuition platform by improving the UI, and implementing OTP verifications through SNS.",
-			"Played a pivotal role in migrating StudyRooms to AWS EKS Kubernetes using Terraform, significantly enhancing scalability and cost	efficiency.",
+			"Enhanced the Study Rooms online tuition platform by integrating responsive and reusable components such as Carousels and Card Galleries.",
+			"Contributed to extending the GraphQL and NestJS Backend of Study Rooms by implementing features like User OTP verifications, S3 Object Management and Input sanitization etc.",
+			"Migrated the Study Rooms infrastructure to an AWS EKS Kubernetes cluster using Terraform, resulting in notable scalability enhancements and cost reductions up to 50%.",
 			"Implemented a real-time monitoring and tracing system using Prometheus, Grafana, Kiali, and Jaeger for enhanced system	observability.",
-			"Utilized a self-hosted approach with Elasticsearch, MongoDB Ops Manager, and the PostgreSQL operator for efficient data management,	scaling, and cost reduction.",
+			"Utilized a self-hosted approach with Elasticsearch, MongoDB Ops Manager, and the PostgreSQL operator for efficient data management, scaling, and cost reduction.",
 			"Led an individual project, SubM, a Subscription Management Platform, which involved a diverse skill set in technologies like React Native, NextJS, TypeScript, and Terraform.",
 			"Gained experience in full-stack development, DevOps, and various technologies such as Kubernetes, AWS, Docker, GraphQL, and more	during the internship.",
 		],
