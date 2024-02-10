@@ -9,9 +9,9 @@ interface Props {
 const { social } = Astro.props;
 ---
 
-<div class="list-none group h-full w-full text-secondary-foreground col-span-1">
-	<a href={social.href} class="flex flex-col w-full p-6 rounded-md bg-secondary">
-		<div class="flex items-center justify-center w-full">
+<div class="list-none group h-full w-full rounded-md text-text bg-secondary">
+	<a href={social.href} class="flex flex-col p-6">
+		<div class="flex items-center justify-center">
 			<div class="flex items-center justify-center gap-2">
 				<h2 class="text-xl font-semibold">
 					{social.title}

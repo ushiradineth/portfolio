@@ -7,11 +7,11 @@ export default {
 	theme: {
 		extend: {
 			colors: {
+				text: "var(--text)",
+				background: "var(--background)",
 				primary: "var(--primary)",
-				"primary-foreground": "var(--primary-foreground)",
 				secondary: "var(--secondary)",
-				"secondary-foreground": "var(--secondary-foreground)",
-				border: "var(--border)",
+				accent: "var(--accent)",
 				muted: "var(--muted)",
 			},
 			fontFamily: {
