@@ -2,13 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
 import Job from "../components/Job.astro";
-import { border } from "../lib/utils.ts";
+import { border, getDurationFromDate } from "../lib/utils.ts";
 import { jobs } from "../lib/data.ts";
 ---
 
 <Layout title="Work Experience" description="ushira.com">
 	<main class="flex flex-col min-w-[50%]">
-		<Title>Work</Title>
+		<Title>Work Experience</Title>
+		<p class="text-sm text-muted">{getDurationFromDate(new Date("2023-03-01"))}</p>
 		{
 			jobs.map((job, index) => (
 				<div class={`${border(index, jobs.length)} border-muted border-dashed py-8`}>
