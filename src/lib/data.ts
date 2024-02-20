@@ -176,6 +176,8 @@ export const blogs: Blog[] = [
 	},
 	{
 		title: "GitOps for Kuberenetes with ArgoCD",
+		link: "https://surge.global/gitops-for-kuberenetes-with-argocd/",
+		date: new Date(2024, 2 - 1, 20),
 		tags: ["GitOps", "ArgoCD", "Terrafrom", "Kubernetes", "CI/CD"],
 	},
 	{
