@@ -1,6 +1,7 @@
 ---
 import Badge from "./Badge.astro";
 import type { Blog } from "../lib/types";
+import { formatDate } from "../lib/utils";
 
 interface Props {
 	blog: Blog;
@@ -11,20 +12,18 @@ const { blog } = Astro.props;
 
 <a href={blog.link ?? "javascript:;"} target={blog.link ? "_blank" : "_self"} class="group">
 	<div
-		class="flex flex-col gap-2 w-full border-2 border-transparent group-hover:border-accent border-opacity-0 duration-500 transition-all rounded-lg group-hover:px-2 py-4 group-hover:border-opacity-100">
+		class="flex flex-col gap-4 sm:gap-2 w-full border-2 border-transparent group-hover:border-accent border-opacity-0 duration-500 transition-all rounded-lg group-hover:px-2 py-4 group-hover:border-opacity-100">
 		<div class="flex">
-			<div class="flex items-start md:items-center justify-start gap-2 font-semibold w-full">
-				<h2 class="flex max-w-[65%] w-fit h-full gap-2">
-					{blog.title}{blog.link ? <p class="text-green-500">•</p> : <p class="text-yellow-500">•</p>}
+			<div class="flex flex-col sm:flex-row items-start justify-start gap-2 font-semibold w-full">
+				<h2 class="flex sm:max-w-[70%] w-fit h-full gap-2">
+					{blog.title}
 				</h2>
-				{
-					!blog.link && (
-						<div class="ml-auto">
-							<Badge>Coming Soon</Badge>
-						</div>
-					)
-				}
-				{blog.date && <p class="ml-auto text-muted w-fit">{blog.date.toDateString()}</p>}
+				<span class="flex gap-2 sm:ml-auto">
+					<p class="text-muted w-fit text-right">
+						{blog.date ? formatDate(blog.date) : "Coming Soon"}
+					</p>
+					<p>{blog.link ? <p class=" sm:block text-green-500">•</p> : <p class=" sm:block text-yellow-500">•</p>}</p>
+				</span>
 			</div>
 		</div>
 
