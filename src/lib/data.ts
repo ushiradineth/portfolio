@@ -13,6 +13,7 @@ import ten from "../images/gallery/10.jpeg";
 import eleven from "../images/gallery/11.jpeg";
 import twelwe from "../images/gallery/12.jpeg";
 
+import cron from "../images/projects/cron.png";
 import hellotiger from "../images/projects/hello-tiger.png";
 import studyrooms from "../images/projects/studyrooms.png";
 import subm from "../images/projects/subm.png";
@@ -37,6 +38,19 @@ export const images: ImageCollection[] = [
 ];
 
 export const projects: Project[] = [
+	{
+		title: "Cron",
+		icon: cron,
+		period: "February 2023 - Present",
+		designation: "Personal",
+		technologies: ["TypeScript", "Go", "NextJS", "React DND", "Tempo", "AWS", "Terraform", "Vercel"],
+		description:
+			"An intuitive, secure, and stress-free task and calendar management solution, ensuring streamlined organization with effortless ease and peace of mind.",
+		links: [
+			{ label: "Website", logo: "mdi:web", href: "https://cron.ushira.com" },
+			{ label: "GitHub", logo: "mdi:github", href: "https://github.com/ushiradineth/cron" },
+		],
+	},
 	{
 		title: "Hello Tiger",
 		icon: hellotiger,
