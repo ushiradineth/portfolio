@@ -1,7 +1,7 @@
 export type ImageCollection = {
 	file: ImageMetadata;
 	alt: string;
-}
+};
 
 export type Project = {
 	title: string;
@@ -38,4 +38,4 @@ export type Social = {
 	href: string;
 	description: string;
 	icon: string;
-}
+};
