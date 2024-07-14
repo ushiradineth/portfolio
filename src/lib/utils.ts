@@ -46,3 +46,10 @@ export function formatDate(date: Date): string {
 	};
 	return new Intl.DateTimeFormat("en-US", options).format(date);
 }
+
+export function updateDuration(elementId: string, startDate: Date) {
+  const element = document.getElementById(elementId);
+  if (element) {
+    element.textContent = getDurationFromDate(startDate);
+  }
+}
