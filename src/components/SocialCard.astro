@@ -1,6 +1,7 @@
 ---
-import type { Social } from "../lib/types";
 import Icon from "astro-icon";
+
+import type { Social } from "../lib/types";
 
 interface Props {
 	social: Social;
@@ -9,16 +10,16 @@ interface Props {
 const { social } = Astro.props;
 ---
 
-<div class="list-none group h-full w-full rounded-md text-text bg-secondary">
+<div class="group h-full w-full list-none rounded-md bg-secondary text-text">
 	<a href={social.href} class="flex flex-col p-6">
 		<div class="flex items-center justify-center">
 			<div class="flex items-center justify-center gap-2">
 				<h2 class="text-xl font-semibold">
 					{social.title}
 				</h2>
-				<p class="font-light"><Icon name={social.icon} class="w-5 h-5" /><p class="text-green-400 dark:text-green-500">•</p></p>
+				<p class="font-light"><Icon name={social.icon} class="h-5 w-5" /><p class="text-green-400 dark:text-green-500">•</p></p>
 			</div>
-			<div class="ml-auto transform transition-transform duration-300 group-hover:-rotate-12">&rarr;</div>
+			<div class="ml-auto transition-transform duration-300 group-hover:-rotate-12">&rarr;</div>
 		</div>
 		<p>{social.description}</p>
 	</a>

@@ -1,8 +1,9 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import "@fontsource-variable/montserrat";
 import "@fontsource-variable/roboto-mono";
+
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
 interface Props {
 	title: string;
@@ -69,8 +70,8 @@ const { title, description } = Astro.props;
 			}
 		</style>
 	</head>
-	<body class="flex flex-col items-center bg-background text-text tracking-tight font-roboto">
-		<main class="flex flex-col p-4 md:gap-8 gap-4 h-screen max-w-[1024px]">
+	<body class="flex flex-col items-center bg-background font-roboto tracking-tight text-text">
+		<main class="flex h-screen max-w-[1024px] flex-col gap-4 p-4 md:gap-8">
 			<Header />
 			<slot />
 			<Footer />

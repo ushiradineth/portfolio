@@ -1,14 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Title from "../components/Title.astro";
 import Project from "../components/Project.astro";
-import { projects } from "../lib/data";
+import Title from "../components/Title.astro";
+import Layout from "../layouts/Layout.astro";
+import { projects } from "../lib/data.ts";
 ---
 
 <Layout title="Projects" description="ushira.com">
-	<main class="flex flex-col min-w-[50%]">
+	<main class="flex min-w-[50%] flex-col">
 		<Title>Projects</Title>
-		<div class="grid md:grid-cols-3 mt-8 gap-2">
+		<div class="mt-8 grid gap-2 md:grid-cols-3">
 			{projects.map((project) => <Project project={project} />)}
 		</div>
 	</main>

@@ -1,5 +1,3 @@
-import type { ImageCollection, Project, Job, Blog, Social } from "./types";
-
 import one from "../images/gallery/1.jpeg";
 import two from "../images/gallery/2.jpeg";
 import three from "../images/gallery/3.jpeg";
@@ -12,15 +10,15 @@ import nine from "../images/gallery/9.jpeg";
 import ten from "../images/gallery/10.jpeg";
 import eleven from "../images/gallery/11.jpeg";
 import twelwe from "../images/gallery/12.jpeg";
-
-import nb from "../images/projects/nb.png";
+import celiao from "../images/projects/celiao.png";
+import clonegram from "../images/projects/clonegram.png";
 import cron from "../images/projects/cron.png";
 import hellotiger from "../images/projects/hello-tiger.png";
+import nb from "../images/projects/nb.png";
 import studyrooms from "../images/projects/studyrooms.png";
 import subm from "../images/projects/subm.png";
-import clonegram from "../images/projects/clonegram.png";
-import celiao from "../images/projects/celiao.png";
 import surge from "../images/work/surge-global.png";
+import type { Blog, ImageCollection, Job, Project, Social } from "./types";
 
 export const images: ImageCollection[] = [
 	{ file: one, alt: "Tea Castle" },

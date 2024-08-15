@@ -1,7 +1,7 @@
 ---
+import type { Blog } from "../lib/types.ts";
+import { formatDate } from "../lib/utils.ts";
 import Badge from "./Badge.astro";
-import type { Blog } from "../lib/types";
-import { formatDate } from "../lib/utils";
 
 interface Props {
 	blog: Blog;
@@ -12,17 +12,17 @@ const { blog } = Astro.props;
 
 <a href={blog.link ?? "javascript:;"} target={blog.link ? "_blank" : "_self"} class="group">
 	<div
-		class="flex flex-col gap-4 sm:gap-2 w-full border-2 border-transparent group-hover:border-accent border-opacity-0 duration-500 transition-all rounded-lg group-hover:px-2 py-4 group-hover:border-opacity-100">
+		class="flex w-full flex-col gap-4 rounded-lg border-2 border-transparent border-opacity-0 py-4 transition-all duration-500 group-hover:border-accent group-hover:border-opacity-100 group-hover:px-2 sm:gap-2">
 		<div class="flex">
-			<div class="flex flex-col sm:flex-row items-start justify-start gap-2 font-semibold w-full">
-				<h2 class="flex sm:max-w-[70%] w-fit h-full gap-2">
+			<div class="flex w-full flex-col items-start justify-start gap-2 font-semibold sm:flex-row">
+				<h2 class="flex h-full w-fit gap-2 sm:max-w-[70%]">
 					{blog.title}
 				</h2>
 				<span class="flex gap-2 sm:ml-auto">
-					<p class="text-muted w-fit text-right">
+					<p class="w-fit text-right text-muted">
 						{blog.date ? formatDate(blog.date) : "Coming Soon"}
 					</p>
-					<p>{blog.link ? <p class=" sm:block text-green-500">•</p> : <p class=" sm:block text-yellow-500">•</p>}</p>
+					<p>{blog.link ? <p class=" text-green-500 sm:block">•</p> : <p class=" text-yellow-500 sm:block">•</p>}</p>
 				</span>
 			</div>
 		</div>

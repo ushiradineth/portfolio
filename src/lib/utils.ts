@@ -48,8 +48,8 @@ export function formatDate(date: Date): string {
 }
 
 export function updateDuration(elementId: string, startDate: Date) {
-  const element = document.getElementById(elementId);
-  if (element) {
-    element.textContent = getDurationFromDate(startDate);
-  }
+	const element = document.getElementById(elementId);
+	if (element) {
+		element.textContent = getDurationFromDate(startDate);
+	}
 }

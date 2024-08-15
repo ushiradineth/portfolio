@@ -1,3 +1,5 @@
+import type { ImageMetadata } from "astro";
+
 export type ImageCollection = {
 	file: ImageMetadata;
 	alt: string;

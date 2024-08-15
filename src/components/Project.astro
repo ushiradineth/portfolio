@@ -1,9 +1,10 @@
 ---
 import Icon from "astro-icon";
+
+import type { Project } from "../lib/types";
+import Badge from "./Badge.astro";
 import IconLink from "./IconLink.astro";
 import IconLinkSet from "./IconLinkSet.astro";
-import Badge from "./Badge.astro";
-import type { Project } from "../lib/types";
 import RoundedIcon from "./RoundedIcon.astro";
 
 interface Props {
@@ -13,11 +14,11 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<div class="flex gap-2 flex-col w-full flex-wrap border border-muted border-dashed hover:border-dotted h-full rounded-lg p-4 group">
-	<div class="flex gap-4 mb-2">
+<div class="group flex h-full w-full flex-col flex-wrap gap-2 rounded-lg border border-dashed border-muted p-4 hover:border-dotted">
+	<div class="mb-2 flex gap-4">
 		<RoundedIcon icon={project.icon} alt={project.title} />
 
-		<div class="flex flex-col gap-2 h-full items-start justify-center font-medium text-xl">
+		<div class="flex h-full flex-col items-start justify-center gap-2 text-xl font-medium">
 			<h2>
 				{project.title}
 			</h2>
@@ -33,13 +34,13 @@ const { project } = Astro.props;
 		</div>
 	</div>
 
-	<p class="text-muted text-xs">{project.designation} • {project.period}</p>
+	<p class="text-xs text-muted">{project.designation} • {project.period}</p>
 
 	<div class="flex w-full flex-wrap">
 		<p>{project.description}</p>
 	</div>
 
-	<div class="flex flex-wrap gap-2 mt-auto">
+	<div class="mt-auto flex flex-wrap gap-2">
 		{project.technologies.map((technology) => <Badge>{technology}</Badge>)}
 	</div>
 </div>

@@ -8,6 +8,6 @@ interface Props {
 const { label, href, target } = Astro.props;
 ---
 
-<a aria-label={label} href={href} target={target} class="flex h-6 w-6 text-text hover:scale-110 transition-all duration-200">
+<a aria-label={label} href={href} target={target} class="flex h-6 w-6 text-text transition-all duration-200 hover:scale-110">
 	<slot />
 </a>

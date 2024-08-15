@@ -1,22 +1,22 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Title from "../components/Title.astro";
 import BlogItem from "../components/BlogItem.astro";
+import Title from "../components/Title.astro";
+import Layout from "../layouts/Layout.astro";
+import { blogs } from "../lib/data.ts";
 import { border } from "../lib/utils.ts";
-import { blogs } from "../lib/data";
 ---
 
 <Layout title="Blog Posts" description="ushira.com">
-	<main class="flex flex-col gap-4 xl:w-[1000px] md:w-[700px]">
+	<main class="flex flex-col gap-4 md:w-[700px] xl:w-[1000px]">
 		<Title>Blog Posts</Title>
-		<div class="flex flex-col group/main">
+		<div class="group/main flex flex-col">
 			{
 				blogs.map((blog, index) => (
 					<div
 						class={`${border(
 							index,
 							blogs.length,
-						)} py-2 md:py-0 border-muted border-dashed group-hover/main:border-background transition-all duration-500`}>
+						)} border-dashed border-muted py-2 transition-all duration-500 group-hover/main:border-background md:py-0`}>
 						<BlogItem blog={blog} />
 					</div>
 				))
