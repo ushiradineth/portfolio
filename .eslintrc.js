@@ -22,7 +22,7 @@ module.exports = {
     {
       files: ["*.ts", "*.tsx"],
       plugins: ["@typescript-eslint", "react", "tailwindcss", "simple-import-sort"],
-      extends: ["plugin:import/recommended"],
+      extends: ["plugin:import/recommended", "eslint:recommended"],
       parser: "@typescript-eslint/parser",
       parserOptions: {
         parser: "@typescript-eslint/parser",
@@ -65,6 +65,9 @@ module.exports = {
         "@typescript-eslint/restrict-template-expressions": "off",
         "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/consistent-type-imports": "error",
+        semi: ["error", "always"],
+        quotes: ["error", "double"],
+        indent: ["error", 2],
       },
     },
     // Configuration for Astro
@@ -72,7 +75,7 @@ module.exports = {
       files: ["*.astro"],
       plugins: ["@typescript-eslint", "react", "unused-imports", "simple-import-sort"],
 
-      extends: ["plugin:tailwindcss/recommended", "plugin:astro/recommended"],
+      extends: ["plugin:tailwindcss/recommended", "plugin:prettier/recommended", "plugin:astro/recommended"],
       parser: "astro-eslint-parser",
       parserOptions: {
         parser: "@typescript-eslint/parser",
