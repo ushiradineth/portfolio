@@ -75,8 +75,8 @@ const { title, description } = Astro.props;
 
 		<ViewTransitions />
 	</head>
-	<body class="flex flex-col items-center bg-background font-roboto tracking-tight text-text">
-		<main class="flex h-screen max-w-[1080px] w-full flex-col gap-4 md:gap-8">
+	<body class="flex flex-col items-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-200 dark:from-slate-800 via-background via-1% to-1% to-background font-roboto tracking-tight text-text">
+		<main class="flex min-h-screen max-w-[1080px] w-full flex-col gap-4 md:gap-8">
 			<Header transition:persist />
 			<main class="flex min-w-[50%] flex-col gap-8 p-4">
 				<slot />
