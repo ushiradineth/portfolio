@@ -8,15 +8,15 @@ import { border } from "../lib/utils.ts";
 ---
 
 <Layout title="Work Experience" description="ushira.com">
-	<main class="flex min-w-[50%] flex-col">
-		<Title>Work Experience</Title>
+	<div class="flex gap-2 items-center justify-between">
+		<Title class="flex flex-col">Work Experience</Title>
 		<WorkExperience />
-		{
-			jobs.map((job, index) => (
-				<div class={`${border(index, jobs.length)} border-dashed border-muted py-8`}>
-					<Job job={job} />
-				</div>
-			))
-		}
-	</main>
+	</div>
+	{
+		jobs.map((job, index) => (
+			<div class={`${border(index, jobs.length)} border-muted pb-8`}>
+				<Job job={job} />
+			</div>
+		))
+	}
 </Layout>

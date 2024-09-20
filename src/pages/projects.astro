@@ -6,10 +6,8 @@ import { projects } from "../lib/data.ts";
 ---
 
 <Layout title="Projects" description="ushira.com">
-	<main class="flex min-w-[50%] flex-col">
-		<Title>Projects</Title>
-		<div class="mt-8 grid gap-2 md:grid-cols-3">
-			{projects.map((project) => <Project project={project} />)}
-		</div>
-	</main>
+	<Title>Projects</Title>
+	<div class="grid gap-2 md:grid-cols-3">
+		{projects.map((project) => <Project project={project} />)}
+	</div>
 </Layout>

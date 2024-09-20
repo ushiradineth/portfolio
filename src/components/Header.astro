@@ -1,13 +1,19 @@
 ---
 import HeaderItem from "./HeaderItem.astro";
 import Theme from "./Theme.astro";
+import Title from "./Title.astro";
 ---
 
-<div class="flex items-center justify-center gap-4 pb-2 pt-4">
-	<HeaderItem href="/">home</HeaderItem>
-	<HeaderItem href="/work/">work</HeaderItem>
-	<HeaderItem href="/projects/">projects</HeaderItem>
-	<HeaderItem href="/blog/">blog</HeaderItem>
-	<HeaderItem href="https://cv.ushira.com" target="_blank">cv</HeaderItem>
-	<Theme />
+<div class="pb-8">
+  <div class="flex fixed w-[1080px] p-4 h-16 border-b border-muted bg-background/30 backdrop-blur z-10">
+		<a href="/" target="_self"><Title>Ushira Dineth</Title></a>
+		<div class="flex ml-auto items-center gap-4">
+			<HeaderItem href="/work/">work</HeaderItem>
+			<HeaderItem href="/projects/">projects</HeaderItem>
+			<HeaderItem href="/blog/">blog</HeaderItem>
+			<HeaderItem href="https://cv.ushira.com" target="_blank">cv</HeaderItem>
+			<span class="hidden md:inline text-muted">|</span>
+			<Theme />
+		</div>
+	</div>
 </div>

@@ -7,20 +7,14 @@ import { border } from "../lib/utils.ts";
 ---
 
 <Layout title="Blog Posts" description="ushira.com">
-	<main class="flex flex-col gap-4 md:w-[700px] xl:w-[1000px]">
-		<Title>Blog Posts</Title>
-		<div class="group/main flex flex-col">
-			{
-				blogs.map((blog, index) => (
-					<div
-						class={`${border(
-							index,
-							blogs.length,
-						)} border-dashed border-muted py-2 transition-all duration-500 group-hover/main:border-background md:py-0`}>
-						<BlogItem blog={blog} />
-					</div>
-				))
-			}
-		</div>
-	</main>
+	<Title>Blog Posts</Title>
+	<div class="group/main flex flex-col w-full">
+		{
+			blogs.map((blog, index) => (
+				<div class={`${border(index, blogs.length)} border-muted w-full py-2 transition-all duration-500 group-hover/main:border-background md:py-0`}>
+					<BlogItem blog={blog} />
+				</div>
+			))
+		}
+	</div>
 </Layout>

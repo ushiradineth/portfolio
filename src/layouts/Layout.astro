@@ -74,9 +74,11 @@ const { title, description } = Astro.props;
 		<ViewTransitions />
 	</head>
 	<body class="flex flex-col items-center bg-background font-roboto tracking-tight text-text">
-		<main class="flex h-screen max-w-[1024px] flex-col gap-4 p-4 md:gap-8">
-			<slot />
+		<main class="flex h-screen max-w-[1080px] w-full flex-col gap-4 md:gap-8">
 			<Header transition:persist />
+			<main class="flex min-w-[50%] flex-col gap-8 p-4">
+				<slot />
+			</main>
 			<Footer />
 		</main>
 	</body>
