@@ -19,7 +19,6 @@
     "@fontsource-variable/montserrat": "^5.0.17",
     "@fontsource-variable/roboto-mono": "^5.0.17",
     "astro": "^4.3.2",
-    "astro-color-scheme": "^1.1.2",
     "astro-icon": "^0.8.2",
     "astro-og-canvas": "^0.5.3",
     "astro-robots-txt": "^1.0.0",

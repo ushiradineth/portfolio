@@ -29,9 +29,6 @@ importers:
       astro:
         specifier: ^4.3.2
         version: 4.3.2(typescript@5.3.3)
-      astro-color-scheme:
-        specifier: ^1.1.2
-        version: 1.1.2
       astro-icon:
         specifier: ^0.8.2
         version: 0.8.2
@@ -968,9 +965,6 @@ packages:
   arraybuffer.prototype.slice@1.0.3:
     resolution: {integrity: sha512-bMxMKAjg13EBSVscxTaYA4mRc5t1UAXa2kXiGTNfZ079HIWXEkKmkgFrh/nJqamaLSrXO5H4WFFkPEaLJWbs3A==}
     engines: {node: '>= 0.4'}
-
-  astro-color-scheme@1.1.2:
-    resolution: {integrity: sha512-HCnBlb805QaT8xgPB59Qur9wqFKoLGA3gQjY33SQe07re1XTF8ksJ3UT8KF55V14aNwfhe/dr4WC0ZZ2DL7U7g==}
 
   astro-eslint-parser@0.16.0:
     resolution: {integrity: sha512-k9ASvY8pa6qttM+fvNJCILxxjftfNg/ou5cjd25SVHsc7moplezGGM9fgMUyf24SRYt8ShO603oHRDn2KqwxMg==}
@@ -4533,8 +4527,6 @@ snapshots:
       get-intrinsic: 1.2.4
       is-array-buffer: 3.0.4
       is-shared-array-buffer: 1.0.3
-
-  astro-color-scheme@1.1.2: {}
 
   astro-eslint-parser@0.16.0:
     dependencies:
