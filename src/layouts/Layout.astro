@@ -47,8 +47,8 @@ const { title, description } = Astro.props;
 				--text: 16, 22, 25; /* #101619 */
 				--background: 247, 252, 254; /* #f7fcfe */
 				--primary: 46, 82, 97; /* #2e5261 */
-				--accent: 255, 228, 230; /* #ffe4e6 (rose-100) */
-				--accent-contrast: 254, 205, 211; /* #fecdd3 (rose-200) */
+				--accent: 255, 241, 242; /* #fecdd3 (rose-200) */
+        --accent-contrast: 250, 245, 255; /* #faf5ff (purple-50) */
 				--muted: 128, 152, 155; /* #80989b */
 				--border: 24, 24, 27, 0.1; /* #18181b1a */
 			}
@@ -95,7 +95,8 @@ const { title, description } = Astro.props;
 			}
 
 			.custom-gradient {
-				background: radial-gradient(ellipse at center, rgba(var(--accent), 0.25), rgba(var(--background), 1));
+				background: radial-gradient(ellipse at center, rgba(var(--accent), 1), rgba(var(--background), 1));
+				filter: url(#grainy);
 				background-size: 200% 200%;
 				animation: moveGradient 24s ease infinite;
 			}
@@ -103,13 +104,24 @@ const { title, description } = Astro.props;
 
 		<ViewTransitions />
 	</head>
-	<body class="flex flex-col items-center font-roboto tracking-tight text-text custom-gradient">
-		<main class="flex min-h-screen max-w-[1080px] w-full flex-col gap-4">
-			<Header transition:persist />
-			<main class="flex min-w-[50%] flex-col gap-8 p-4">
-				<slot />
-			</main>
-			<Footer />
+	<body class="flex flex-col items-center font-roboto tracking-tight text-text">
+		<main class="flex w-full justify-center">
+      <div id="content" class="flex flex-col min-h-screen max-w-[1080px] w-full">
+				<Header transition:persist />
+				<main class="flex min-w-[50%] flex-col gap-4 py-8 px-4">
+					<slot />
+				</main>
+				<Footer />
+			</div>
+			<div id="background" class="flex fixed -z-10 bg-sky-200 h-full w-full flex-col gap-4 custom-gradient">
+				<svg width="0" height="0">
+					<filter id="grainy" x="0" y="0" width="100%" height="100%">
+						<feTurbulence type="fractalNoise" baseFrequency="1"></feTurbulence>
+						<feColorMatrix type="saturate" values="0"></feColorMatrix>
+						<feBlend in="SourceGraphic" mode="multiply"></feBlend>
+					</filter>
+				</svg>
+			</div>
 		</main>
 	</body>
 </html>
