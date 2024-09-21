@@ -261,11 +261,12 @@ export const blogs: Blog[] = [
   },
 ];
 
-export const SocialLinks = new Map<"Twitter" | "LinkedIn" | "Medium" | "Github", string>([
+export const SocialLinks = new Map<"Twitter" | "LinkedIn" | "Medium" | "Github" | "CV", string>([
   ["Twitter", "https://www.twitter.com/ushiradineth"],
   ["LinkedIn", "https://www.linkedin.com/in/ushiradineth"],
   ["Medium", "https://www.medium.com/@ushiradineth"],
   ["Github", "https://www.github.com/ushiradineth"],
+  ["CV", "https://cv.ushira.com"],
 ]);
 
 export const socials: Social[] = [
