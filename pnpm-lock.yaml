@@ -20,9 +20,6 @@ importers:
       '@astrojs/vercel':
         specifier: ^7.1.1
         version: 7.1.1(astro@4.3.2(typescript@5.3.3))
-      '@fontsource-variable/montserrat':
-        specifier: ^5.0.17
-        version: 5.0.17
       '@fontsource-variable/roboto-mono':
         specifier: ^5.0.17
         version: 5.0.17
@@ -437,9 +434,6 @@ packages:
   '@eslint/js@8.55.0':
     resolution: {integrity: sha512-qQfo2mxH5yVom1kacMtZZJFVdW+E70mqHMJvVg6WTLo+VBuQJ4TojZlfWBjK0ve5BdEeNAVxOsl/nvNMpJOaJA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-
-  '@fontsource-variable/montserrat@5.0.17':
-    resolution: {integrity: sha512-kRPFY+sLUPE4fGTkuHu6phebYTwizsbGVIvqYa2vysRLPKUxwoiy1lb9Z4Qul8qoVspXnl0b9zA5LSn0scD9vA==}
 
   '@fontsource-variable/roboto-mono@5.0.17':
     resolution: {integrity: sha512-+FyoiEmO2r/kiwPnsPtATK2ROMgNwCnVSvvs+K38GMLIgLSSk4cNqU3GCqJDMSvAPHMYd0gFPGKStFh+yLqd9Q==}
@@ -3952,8 +3946,6 @@ snapshots:
       - supports-color
 
   '@eslint/js@8.55.0': {}
-
-  '@fontsource-variable/montserrat@5.0.17': {}
 
   '@fontsource-variable/roboto-mono@5.0.17': {}
 

@@ -18,7 +18,6 @@ export default {
         border: "rgb(var(--border))",
       },
       fontFamily: {
-        montserrat: ['"Montserrat Variable"', ...defaultTheme.fontFamily.sans],
         roboto: ['"Roboto Mono Variable"', ...defaultTheme.fontFamily.sans],
       },
     },
