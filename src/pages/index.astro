@@ -13,6 +13,7 @@ import { images, socials } from "../lib/data.ts";
 		src={self}
 		alt={"Ushira Dineth"}
 	/>
+
 	<div class="flex flex-col-reverse gap-8 md:flex-row md:gap-60">
 		<span class="flex flex-col gap-2">
 			<p>
@@ -25,13 +26,15 @@ import { images, socials } from "../lib/data.ts";
 		</span>
 		<Image src={self} alt={"Ushira Dineth"} class={"hidden h-52 w-52 rounded-lg md:block"} />
 	</div>
+
 	<span class="ml-auto flex">
 		<ImageGallery images={images} />
 	</span>
 
-	<p>Below are the other places you can find me;</p>
-
-	<div class="grid h-full w-full grid-cols-1 justify-between gap-2 md:grid-cols-3">
-		{socials.map((social) => <SocialCard social={social} />)}
+	<div class="flex flex-col gap-4">
+		<p>Below are the other places you can find me;</p>
+		<div class="grid h-full w-full grid-cols-1 justify-between gap-2 md:grid-cols-3">
+			{socials.map((social) => <SocialCard social={social} />)}
+		</div>
 	</div>
 </Layout>

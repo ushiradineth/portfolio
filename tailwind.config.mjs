@@ -7,13 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        text: "var(--text)",
-        background: "var(--background)",
-        primary: "var(--primary)",
-        secondary: "var(--secondary)",
-        accent: "var(--accent)",
-        muted: "var(--muted)",
-        border: "var(--border)",
+        text: "rgb(var(--text))",
+        background: "rgb(var(--background))",
+        primary: "rgb(var(--primary))",
+        accent: {
+          DEFAULT: "rgb(var(--accent))",
+          contrast: "rgb(var(--accent-contrast))",
+        },
+        muted: "rgb(var(--muted))",
+        border: "rgb(var(--border))",
       },
       fontFamily: {
         montserrat: ['"Montserrat Variable"', ...defaultTheme.fontFamily.sans],

@@ -12,7 +12,7 @@ const { blog } = Astro.props;
 
 <a href={blog.link ?? "javascript:;"} target={blog.link ? "_blank" : "_self"} class="group">
 	<div
-		class="flex w-full flex-col gap-4 rounded-lg border-2 border-transparent border-opacity-0 py-4 transition-all duration-500 group-hover:border-accent group-hover:border-opacity-100 group-hover:px-2 sm:gap-2">
+		class="flex w-full flex-col gap-4 rounded-lg border-2 border-transparent border-opacity-0 py-4 group-hover:border-border group-hover:border-opacity-100 sm:gap-2 p-2">
 		<div class="flex">
 			<div class="flex w-full flex-col items-start justify-start gap-2 font-semibold sm:flex-row">
 				<h2 class="flex h-full w-fit gap-2 sm:max-w-[70%]">

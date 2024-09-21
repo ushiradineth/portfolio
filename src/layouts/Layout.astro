@@ -44,23 +44,23 @@ const { title, description } = Astro.props;
 
 		<style is:global>
 			:root {
-				--text: #101619;
-				--background: #f7fcfe;
-				--primary: #2e5261;
-				--secondary: #9093cb;
-				--accent: #645a87;
-				--muted: #80989b;
-				--border: #18181b1a;
+				--text: 16, 22, 25; /* #101619 */
+				--background: 247, 252, 254; /* #f7fcfe */
+				--primary: 46, 82, 97; /* #2e5261 */
+				--accent: 255, 228, 230; /* #ffe4e6 (rose-100) */
+				--accent-contrast: 254, 205, 211; /* #fecdd3 (rose-200) */
+				--muted: 128, 152, 155; /* #80989b */
+				--border: 24, 24, 27, 0.1; /* #18181b1a */
 			}
 
 			.dark {
-				--text: #f3f3f2;
-				--background: #121212;
-				--primary: #9fc3d2;
-				--secondary: #34376f;
-				--accent: #8379a5;
-				--muted: #80989b;
-				--border: #ffffff1a;
+				--text: 243, 243, 242; /* #f3f3f2 */
+				--background: 18, 18, 18; /* #121212 */
+				--primary: 159, 195, 210; /* #9fc3d2 */
+				--accent: 15, 23, 42; /* #0f172a (slate-900) */
+				--accent-contrast: 30, 41, 59; /* #1e293b (slate-800) */
+				--muted: 128, 152, 155; /* #80989b */
+				--border: 255, 255, 255, 0.1; /* #ffffff1a */
 			}
 
 			.hide-scrollbar::-webkit-scrollbar {
@@ -71,12 +71,40 @@ const { title, description } = Astro.props;
 				-ms-overflow-style: none; /* IE and Edge */
 				scrollbar-width: none; /* Firefox */
 			}
+
+			/* Continuous gradient animation */
+			@keyframes moveGradient {
+				0% {
+					background-position: 50% 50%;
+				}
+				20% {
+					background-position: 100% 100%;
+				}
+				40% {
+					background-position: 0% 0%;
+				}
+				60% {
+					background-position: 100% -100%;
+				}
+				80% {
+					background-position: -100% 100%;
+				}
+				100% {
+					background-position: 50% 50%;
+				}
+			}
+
+			.custom-gradient {
+				background: radial-gradient(ellipse at center, rgba(var(--accent), 0.25), rgba(var(--background), 1));
+				background-size: 200% 200%;
+				animation: moveGradient 24s ease infinite;
+			}
 		</style>
 
 		<ViewTransitions />
 	</head>
-	<body class="flex flex-col items-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-200 dark:from-slate-800 via-background via-1% to-1% to-background font-roboto tracking-tight text-text">
-		<main class="flex min-h-screen max-w-[1080px] w-full flex-col gap-4 md:gap-8">
+	<body class="flex flex-col items-center font-roboto tracking-tight text-text custom-gradient">
+		<main class="flex min-h-screen max-w-[1080px] w-full flex-col gap-4">
 			<Header transition:persist />
 			<main class="flex min-w-[50%] flex-col gap-8 p-4">
 				<slot />
