@@ -11,7 +11,11 @@ import { border } from "../lib/utils.ts";
 	<div class="group/main flex flex-col w-full">
 		{
 			blogs.map((blog, index) => (
-				<div class={`${border(index, blogs.length)} border-border w-full py-2 transition-all duration-500 group-hover/main:border-background md:py-0`}>
+				<div
+					class={`${border(
+						index,
+						blogs.length,
+					)} border-border w-full py-2 transition-all duration-500 group-hover/main:border-background md:py-0`}>
 					<BlogItem blog={blog} />
 				</div>
 			))
