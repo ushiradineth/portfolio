@@ -177,7 +177,7 @@ export const projects: Project[] = [
     icon: celiao,
     period: "December 2022 - February 2023",
     designation: "University",
-    technologies: ["Java", "Android Studio", "Firebase", "Javax Mail"],
+    technologies: ["Java", "Android Studio", "Firebase"],
     description: "A Vehicle Rental Application with User, Booking and other management systems.",
     links: [
       {
