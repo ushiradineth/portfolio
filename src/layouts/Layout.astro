@@ -18,7 +18,7 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<title>{title}</title>
 		<meta charset="UTF-8" />
@@ -41,13 +41,22 @@ const { title, description } = Astro.props;
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="canonical" href={canonicalURL} />
 
+		<script is:inline>
+			const local = localStorage.getItem("theme");
+			const system = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+			const theme = local ?? system;
+			document.documentElement.classList.remove("light", "dark");
+			document.documentElement.classList.add(theme);
+		</script>
+
 		<style is:global>
 			:root {
 				--text: 16, 22, 25; /* #101619 */
 				--background: 247, 252, 254; /* #f7fcfe */
 				--primary: 46, 82, 97; /* #2e5261 */
 				--accent: 255, 241, 242; /* #fecdd3 (rose-200) */
-        --accent-contrast: 250, 245, 255; /* #faf5ff (purple-50) */
+				--accent-contrast: 250, 245, 255; /* #faf5ff (purple-50) */
 				--muted: 128, 152, 155; /* #80989b */
 				--border: 24, 24, 27, 0.1; /* #18181b1a */
 			}
@@ -105,7 +114,7 @@ const { title, description } = Astro.props;
 	</head>
 	<body class="flex flex-col items-center font-roboto tracking-tight text-text">
 		<main class="flex w-full justify-center">
-      <div id="content" class="flex flex-col min-h-screen max-w-[1080px] w-full">
+			<div id="content" class="flex flex-col min-h-screen max-w-[1080px] w-full">
 				<Header transition:persist />
 				<main class="flex min-w-[50%] flex-col gap-4 py-8 px-4">
 					<slot />
