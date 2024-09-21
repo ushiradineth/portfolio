@@ -7,7 +7,7 @@ import { projects } from "../lib/data.ts";
 
 <Layout title="Projects" description="ushira.com">
 	<Title>Projects</Title>
-	<div class="grid gap-2 md:grid-cols-3">
+	<div class="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
 		{projects.map((project) => <Project project={project} />)}
 	</div>
 </Layout>
