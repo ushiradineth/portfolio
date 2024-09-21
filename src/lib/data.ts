@@ -14,7 +14,7 @@ import celiao from "../images/projects/celiao.png";
 import clonegram from "../images/projects/clonegram.png";
 import cron from "../images/projects/cron.png";
 import hellotiger from "../images/projects/hello-tiger.png";
-import nb from "../images/projects/nb.png";
+import nb from "../images/projects/nb.jpeg";
 import studyrooms from "../images/projects/studyrooms.png";
 import subm from "../images/projects/subm.png";
 import surge from "../images/work/surge-global.png";
