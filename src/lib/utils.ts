@@ -38,11 +38,11 @@ export function getDurationFromDate(date: Date): string {
 	return result;
 }
 
-export function formatDate(date: Date): string {
+export function formatDate(date: Date, opt?: Intl.DateTimeFormatOptions): string {
 	const options: Intl.DateTimeFormatOptions = {
-		day: "2-digit",
-		month: "short",
-		year: "numeric",
+		day: opt?.day ?? "2-digit",
+		month: opt?.month ?? "short",
+		year: opt?.year ?? "numeric",
 	};
 	return new Intl.DateTimeFormat("en-US", options).format(date);
 }
