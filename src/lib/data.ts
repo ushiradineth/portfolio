@@ -261,10 +261,10 @@ export const blogs: Blog[] = [
   },
 ];
 
-export const SocialLinks = new Map<"Twitter" | "LinkedIn" | "Medium" | "Github" | "CV", string>([
+export const SocialLinks = new Map<"Twitter" | "LinkedIn" | "Youtube" | "Github" | "CV", string>([
   ["Twitter", "https://www.twitter.com/ushiradineth"],
   ["LinkedIn", "https://www.linkedin.com/in/ushiradineth"],
-  ["Medium", "https://www.medium.com/@ushiradineth"],
+  ["Youtube", "https://www.youtube.com"],
   ["Github", "https://www.github.com/ushiradineth"],
   ["CV", "https://cv.ushira.com"],
 ]);
@@ -277,15 +277,15 @@ export const socials: Social[] = [
     icon: "mdi:twitter",
   },
   {
+    title: "Youtube",
+    description: "I occasionally make videos",
+    href: SocialLinks.get("Youtube")!,
+    icon: "mdi:youtube",
+  },
+  {
     title: "LinkedIn",
     description: "I occasionally use LinkedIn as well",
     href: SocialLinks.get("LinkedIn")!,
     icon: "mdi:linkedin",
-  },
-  {
-    title: "Medium",
-    description: "I occasionally write blog posts",
-    href: SocialLinks.get("Medium")!,
-    icon: "simple-icons:medium",
   },
 ];
