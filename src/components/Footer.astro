@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 import { SocialLinks } from "../lib/data.ts";
 import IconLink from "./IconLink.astro";
@@ -17,7 +17,7 @@ import IconLink from "./IconLink.astro";
 			<Icon name="mdi:linkedin" />
 		</IconLink>
 		<IconLink label="CV" href={SocialLinks.get("CV")!} target="_blank">
-			<p class="font-bold">CV</p>
+			<p>CV</p>
 		</IconLink>
 	</div>
 </div>

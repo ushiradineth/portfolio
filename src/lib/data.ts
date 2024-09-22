@@ -92,12 +92,12 @@ export const projects: Project[] = [
     links: [
       {
         label: "Apple Store",
-        logo: "ion:logo-apple",
+        logo: "mdi:apple",
         href: "https://apps.apple.com/lk/app/hello-tiger-dating-app-chat/id1575544065",
       },
       {
         label: "Google Play Store",
-        logo: "ion:logo-android",
+        logo: "mdi:android",
         href: "https://play.google.com/store/apps/details?id=com.appello.hellotiger&hl=en",
       },
     ],
@@ -140,7 +140,7 @@ export const projects: Project[] = [
     links: [
       {
         label: "Android APK",
-        logo: "ion:logo-android",
+        logo: "mdi:android",
         href: "https://github.com/ushiradineth/subapp/releases",
       },
       { label: "Website", logo: "mdi:web", href: "https://subm.ushira.com" },

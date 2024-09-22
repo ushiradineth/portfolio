@@ -1,5 +1,5 @@
 ---
-import Icon from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 import type { Social } from "../lib/types";
 
@@ -17,7 +17,7 @@ const { social } = Astro.props;
 				<h2 class="text-xl font-semibold">
 					{social.title}
 				</h2>
-				<p class="font-light"><Icon name={social.icon} class="h-5 w-5" /><p class="text-green-400 dark:text-green-500">•</p></p>
+				<p class="font-light"><Icon name={social.icon} /><p class="text-green-400 dark:text-green-500">•</p></p>
 			</div>
 			<div class="ml-auto transition-transform duration-300 group-hover:-rotate-12">&rarr;</div>
 		</div>
