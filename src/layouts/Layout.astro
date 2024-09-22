@@ -8,13 +8,17 @@ import { ViewTransitions } from "astro:transitions";
 interface Props {
 	title: string;
 	description: string;
+	tags?: string[];
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const pathname = `${Astro.url.pathname === "/" ? "index" : Astro.url.pathname.substring(0, Astro.url.pathname.length - 1)}`;
 const ogImage = `${Astro.site}og/${pathname}.png`;
+const defaultTags = ["Ushira Dineth", "Software Engineer", "Portfolio"];
 
-const { title, description } = Astro.props;
+const { title, description, tags: providedTags } = Astro.props;
+
+const tags = [...defaultTags, ...(providedTags ? providedTags : [])];
 ---
 
 <!doctype html>
@@ -24,7 +28,7 @@ const { title, description } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="keywords" content="Software Engineer, Portfolio, Kubernetes, DevOps, Full Stack" />
+		<meta name="keywords" content={tags.join(", ")} />
 		<meta name="author" content="Ushira Dineth" />
 		<meta name="generator" content={Astro.generator} />
 		<meta property="og:title" content={title} />
@@ -75,6 +79,7 @@ const { title, description } = Astro.props;
         font-size: 1.5rem;
 				color: var(--text);
 			}
+
 			.hide-scrollbar::-webkit-scrollbar {
 				display: none;
 			}
@@ -116,7 +121,7 @@ const { title, description } = Astro.props;
 
 		<ViewTransitions />
 	</head>
-	<body class="flex flex-col items-center font-roboto tracking-tight text-text">
+	<body class="flex flex-col items-center font-roboto tracking-tight text-pretty text-text">
 		<main class="flex w-full justify-center">
 			<div id="content" class="flex flex-col min-h-screen max-w-[1080px] w-full">
 				<Header transition:persist />
