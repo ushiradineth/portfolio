@@ -1,0 +1,17 @@
+---
+import Logo from "../components/Logo.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title = "404";
+const description = "Page not found";
+---
+
+<Layout title={title} description="Page not found">
+	<main class="flex flex-col items-center justify-center gap-4 p-8">
+		<Logo primary="accent" secondary="text" />
+		<span class="text-center">
+			<h1 class="text-2xl font-bold">{title}</h1>
+			<h2 class="font-bold">{description}</h2>
+		</span>
+	</main>
+</Layout>
