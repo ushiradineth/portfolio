@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800"><defs><radialGradient id="cccircular-grad" r="50%" cx="50%" cy="50%">
-         <stop offset="15%" stop-color="#cb839a" stop-opacity="0.5"></stop>
-         <stop offset="75%" stop-color="hsl(341, 100%, 85%)" stop-opacity="1"></stop>
-          <stop offset="100%" stop-color="#ffffff" stop-opacity="1"></stop>
-        </radialGradient></defs><g fill="url(#cccircular-grad)"><circle r="352" cx="400" cy="400" opacity="0.36"></circle><circle r="320" cx="400" cy="400" opacity="0.22"></circle><circle r="288" cx="400" cy="400" opacity="0.98"></circle><circle r="256" cx="400" cy="400" opacity="0.43"></circle><circle r="224" cx="400" cy="400" opacity="0.55"></circle><circle r="192" cx="400" cy="400" opacity="0.47"></circle><circle r="160" cx="400" cy="400" opacity="0.24"></circle><circle r="128" cx="400" cy="400" opacity="0.59"></circle><circle r="96" cx="400" cy="400" opacity="0.31"></circle><circle r="64" cx="400" cy="400" opacity="0.83"></circle></g></svg>
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="1200" rx="20" fill="#D9D9D9"/>
+<path d="M88 472V88H472V216H344L984 856V728H1112V1112H728V984H856L216 344V472H88Z" fill="black"/>
+<path d="M472 1112H88L88 728H216V856L856 216H728L728 88L1112 88V472L984 472V344L344 984H472V1112Z" fill="black"/>
+<path d="M579.113 600L554.745 554.745L600 579.113L645.255 554.745L620.887 600L645.255 645.255L600 620.887L554.745 645.255L579.113 600Z" fill="white"/>
+</svg>
