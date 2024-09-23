@@ -11,9 +11,18 @@ interface Props {
 	tags?: string[];
 }
 
+const pathname = `${
+	Astro.url.pathname === "/"
+		? "index"
+		: Astro.url.pathname[Astro.url.pathname.length - 1] === "/"
+			? Astro.url.pathname.substring(0, Astro.url.pathname.length - 1)
+			: Astro.url.pathname
+}`;
+
+const siteURL = Astro.site?.toString() ?? "";
+const site = siteURL[siteURL.length - 1] === "/" ? siteURL.substring(0, siteURL.length - 1) : Astro.site;
+const ogImage = `${site}/og${pathname}.png/`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const pathname = `${Astro.url.pathname === "/" ? "index" : Astro.url.pathname.substring(0, Astro.url.pathname.length - 1)}`;
-const ogImage = `${Astro.site}og/${pathname}.png`;
 const defaultTags = ["Ushira Dineth", "Software Engineer", "Portfolio"];
 
 const { title, description, tags: providedTags } = Astro.props;
@@ -75,10 +84,65 @@ const tags = [...defaultTags, ...(providedTags ? providedTags : [])];
 				--border: 255, 255, 255, 0.1; /* #ffffff1a */
 			}
 
+			hr {
+				border-color: rgba(var(--border)) !important;
+			}
+
+			/* Astro Icon Configuration */
 			[data-icon] {
 				font-size: 1.5rem;
 				color: var(--text);
 			}
+			/* --- */
+
+			/* Shiki Configuration */
+			code[data-theme*=" "],
+			code[data-theme*=" "] span {
+				color: var(--shiki-light);
+				background-color: var(--shiki-light-bg);
+			}
+
+			.dark code[data-theme*=" "],
+			.dark code[data-theme*=" "] span {
+				color: var(--shiki-dark);
+				background-color: var(--shiki-dark-bg);
+			}
+
+			code > span {
+				padding-right: 8px;
+			}
+
+			code {
+				font-size: 0.875rem;
+				line-height: 1.25rem;
+			}
+
+			figure,
+			pre,
+			code {
+				overflow-x: auto;
+				padding: 0 0 0 0 !important;
+				margin: 0 0 0 0 !important;
+			}
+
+			code {
+				padding: 10px 20px 10px 10px !important;
+				@apply hide-scrollbar;
+			}
+
+			pre > code {
+				counter-reset: line;
+			}
+
+			code[data-line-numbers] > [data-line]::before {
+				counter-increment: line;
+				content: counter(line);
+				display: inline-block;
+				width: 1.5rem;
+				text-align: right;
+				color: rgb(var(--muted));
+			}
+			/* --- */
 
 			.hide-scrollbar::-webkit-scrollbar {
 				display: none;
@@ -116,6 +180,8 @@ const tags = [...defaultTags, ...(providedTags ? providedTags : [])];
 				filter: url(#grainy);
 				background-size: 200% 200%;
 				animation: moveGradient 24s ease infinite;
+				-webkit-backdrop-filter: blur(3px);
+				backdrop-filter: blur(3px);
 			}
 		</style>
 

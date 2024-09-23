@@ -4,11 +4,37 @@ import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import vercelStatic from "@astrojs/vercel/static";
 import icon from "astro-icon";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
+import { transformerCopyButton } from "@rehype-pretty/transformers";
 
-// https://astro.build/config
+const rehypeConfig = {
+  syntaxHighlight: false,
+  rehypePlugins: [
+    rehypeSlug,
+    [
+      rehypePrettyCode,
+      {
+        theme: {
+          dark: "github-dark-dimmed",
+          light: "github-light",
+        },
+        transformers: [
+          transformerCopyButton({
+            visibility: "hover",
+            feedbackDuration: 2_500,
+          }),
+        ],
+      },
+    ],
+  ],
+};
+
 export default defineConfig({
   integrations: [tailwind(), sitemap(), robotsTxt(), icon()],
-	output: "static",
-	site: "https://ushira.com",
-	adapter: vercelStatic(),
+  markdown: rehypeConfig,
+  output: "static",
+  site: "https://ushira.com",
+  trailingSlash: "always",
+  adapter: vercelStatic(),
 });

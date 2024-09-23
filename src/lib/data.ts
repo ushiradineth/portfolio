@@ -255,7 +255,7 @@ export const blogs: Blog[] = [
   },
   {
     title: "Automated Semantic Versioning with CI",
-    link: "/blog/automated-semantic-versioning-with-ci",
+    link: "/blog/automated-semantic-versioning-with-ci/",
     date: new Date(2024, 2 - 1, 3),
     tags: ["GitFlow", "Git", "Semantic Versioning", "Bash", "CI/CD"],
   },

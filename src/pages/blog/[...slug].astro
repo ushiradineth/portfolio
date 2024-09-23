@@ -1,78 +1,24 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import { formatDate } from "../../lib/utils";
 
+interface Props {
+	post: CollectionEntry<"blog">;
+}
+
 export async function getStaticPaths() {
-	const blogEntries = await getCollection("blog");
-	return blogEntries.map((entry) => ({
-		params: { slug: entry.slug },
-		props: { entry },
+	const blogPosts = await getCollection("blog");
+	return blogPosts.map((post: CollectionEntry<"blog">) => ({
+		params: { slug: post.slug },
+		props: { post },
 	}));
 }
 
-const { entry } = Astro.props;
-const { Content, headings } = await entry.render();
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
 ---
-
-<style is:inline>
-	#blog-body h2 {
-		font-size: 2rem;
-		margin-top: 1rem;
-	}
-
-	#blog-body h3 {
-		font-size: 1.5rem;
-		margin-top: 0.5rem;
-	}
-
-	#blog-body h3::before {
-		content: "-";
-		margin-right: 0.5rem;
-		color: currentColor;
-	}
-
-	#blog-body h4 {
-		font-size: 1rem;
-		margin-top: 0.25rem;
-		margin-left: 1rem;
-	}
-
-	#blog-body h4::before {
-		content: "~";
-		margin-right: 0.5rem;
-		color: currentColor;
-	}
-
-	#blog-body ul {
-		list-style-type: disc;
-		margin-left: 1rem;
-	}
-
-	#blog-body li {
-		margin-left: 2rem;
-		margin-bottom: 0.5rem;
-	}
-
-	#blog-body p {
-		margin-bottom: 1rem;
-	}
-
-	#blog-body a {
-		text-decoration: underline;
-		text-underline-offset: 2px;
-	}
-
-	#blog-body hr {
-		display: block;
-		height: 1px;
-		border: 0;
-		border-top: 1px solid gray;
-		margin: 1em 0;
-		padding: 0;
-	}
-</style>
 
 <script>
 	document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) => {
@@ -96,24 +42,25 @@ const { Content, headings } = await entry.render();
 	});
 </script>
 
-<Layout title={entry.data.title} description={entry.data.description} tags={entry.data.tags}>
+<Layout title={post.data.title} description={post.data.description} tags={post.data.tags}>
 	<div id="blog-header" class="flex items-center gap-4 mb-4 w-full">
 		<a class="w-fit rounded-full bg-accent-contrast p-2 ring-1 ring-muted" aria-label="Back" href="/">
 			<Icon size="16" name="mdi:arrow-left" />
 		</a>
 		<span class="text-muted">|</span>
-		<p>{formatDate(entry.data.date, { month: "long", year: "numeric" })}</p>
+		<p>{formatDate(post.data.date, { month: "long", year: "numeric" })}</p>
 	</div>
 
 	<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 		<div id="divider" class="w-full border-t border-border md:hidden mt-12 mb-8"></div>
 
-		<div id="blog-body" class="grid col-span-1 md:col-span-3 gap-4">
-			<h1 class="text-4xl font-bold mb-2">{entry.data.title}</h1>
+		<article id="blog-body" class="grid col-span-1 md:col-span-3 prose dark:prose-invert mb-2 hide-scrollbar">
+			<h1 class="text-4xl font-bold mb-2">{post.data.title}</h1>
+			<p class="lead">{post.data.description}</p>
 			<Content />
-		</div>
+		</article>
 
-		<div id="blog-index" class="grid order-first md:order-last col-span-1 text-sm border-border border-l h-fit sticky">
+		<div id="blog-index" class="grid order-first md:order-last col-span-1 text-sm border-border md:border-l h-fit sticky">
 			<div class="flex flex-col gap-4 min-w-0 my-2 mx-4">
 				<h2 class="text-muted">Contents</h2>
 				<div class="flex flex-col gap-2 text-red-300">
