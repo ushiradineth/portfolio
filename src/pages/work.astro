@@ -1,16 +1,15 @@
 ---
 import Job from "../components/Job.astro";
 import Title from "../components/Title.astro";
-import WorkExperience from "../components/WorkExperience.astro";
 import Layout from "../layouts/Layout.astro";
-import { jobs } from "../lib/data.ts";
-import { border } from "../lib/utils.ts";
+import { jobs } from "../lib/data/work";
+import { getDurationFromDate, border } from "../lib/utils";
 ---
 
 <Layout title="Work Experience" description="ushira.com">
 	<div class="flex gap-2 items-center justify-between">
 		<Title class="flex flex-col">Work Experience</Title>
-		<WorkExperience />
+		<p class="text-sm text-muted text-right">{getDurationFromDate(new Date("2023-03-01"))}</p>
 	</div>
 	{
 		jobs.map((job, index) => (
