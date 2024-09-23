@@ -88,6 +88,17 @@ const tags = [...defaultTags, ...(providedTags ? providedTags : [])];
 				border-color: rgba(var(--border)) !important;
 			}
 
+			p:has(img):has(em) img {
+				margin-bottom: 0 !important;
+			}
+
+			p:has(img):has(em) {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+
 			/* Astro Icon Configuration */
 			[data-icon] {
 				font-size: 1.5rem;
