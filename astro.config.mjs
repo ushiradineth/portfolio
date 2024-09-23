@@ -35,6 +35,5 @@ export default defineConfig({
   markdown: rehypeConfig,
   output: "static",
   site: "https://ushira.com",
-  trailingSlash: "always",
   adapter: vercelStatic(),
 });
