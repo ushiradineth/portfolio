@@ -2,15 +2,16 @@
 import { Image } from "astro:assets";
 import ImageGallery from "../components/ImageGallery.astro";
 import SocialCard from "../components/SocialCard.astro";
-import self from "../images/self.png";
+import avatar from "../images/self.png";
 import Layout from "../layouts/Layout.astro";
-import { images, socials } from "../lib/data.ts";
+import { socials } from "../lib/data/socials";
+import { images } from "../lib/data/images";
 ---
 
-<Layout title="Hey, I'm Ushira 👋" description="ushira.com">
+<Layout title="Ushira Dineth" description="ushira.com">
 	<Image
 		class="h-20 w-20 rounded-full object-cover drop-shadow-xl transition-all duration-500 group-hover:scale-110 md:hidden"
-		src={self}
+		src={avatar}
 		alt={"Ushira Dineth"}
 	/>
 
@@ -24,7 +25,7 @@ import { images, socials } from "../lib/data.ts";
 			<p>Currently, I work with TypeScript, NextJS, Terraform and Kubernetes.</p>
 			<p>I'm currently learning Go!</p>
 		</span>
-		<Image src={self} alt={"Ushira Dineth"} class={"hidden h-52 w-52 rounded-lg md:block"} />
+		<Image src={avatar} alt={"Ushira Dineth"} class={"hidden h-52 w-52 rounded-lg md:block"} />
 	</div>
 
 	<span class="ml-auto flex">
