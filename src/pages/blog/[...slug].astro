@@ -3,7 +3,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import { formatDate } from "../../lib/utils";
-import { blogWebsite, getArticleSchema } from "../../lib/data/structuredData";
+import { blogWebsite, getArticleSchema, mainWebsite, personSchema } from "../../lib/data/structuredData";
 import TableOfContents from "../../components/TableOfContents.astro";
 
 interface Props {
@@ -30,12 +30,18 @@ const breadcrumbsStructuredData = {
 		{
 			"@type": "ListItem",
 			position: 1,
+			name: "Home",
+			item: `${import.meta.env.SITE}/`,
+		},
+		{
+			"@type": "ListItem",
+			position: 2,
 			name: "Blog",
 			item: `${import.meta.env.SITE}/blog/`,
 		},
 		{
 			"@type": "ListItem",
-			position: 2,
+			position: 3,
 			name: post.data.title,
 			item: `${import.meta.env.SITE}/blog/${post.slug}/`,
 		},
@@ -44,7 +50,7 @@ const breadcrumbsStructuredData = {
 
 const jsonLd = {
 	"@context": "https://schema.org",
-	"@graph": [articleStructuredData, breadcrumbsStructuredData, blogWebsite],
+	"@graph": [articleStructuredData, breadcrumbsStructuredData, blogWebsite, mainWebsite, personSchema],
 };
 ---
 
@@ -70,7 +76,7 @@ const jsonLd = {
 	});
 </script>
 
-<Layout title={post.data.title} description={post.data.description} tags={post.data.tags}>
+<Layout title={post.data.title} description={post.data.description} tags={post.data.tags} jsonLd={JSON.stringify(jsonLd)}>
 	<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
 
 	<div id="blog-header" class="flex items-center gap-4 mb-4 w-full">

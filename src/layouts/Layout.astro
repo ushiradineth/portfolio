@@ -5,10 +5,13 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { ViewTransitions } from "astro:transitions";
 
+import { blogWebsite, mainWebsite, personSchema } from "../lib/data/structuredData";
+
 interface Props {
 	title: string;
 	description: string;
 	tags?: string[];
+	jsonLd?: string;
 }
 
 const pathname = `${
@@ -25,9 +28,15 @@ const ogImage = `${site}/og${pathname}.png/`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const defaultTags = ["Ushira Dineth", "Software Engineer", "Portfolio"];
 
-const { title, description, tags: providedTags } = Astro.props;
+const { title, description, tags: providedTags, jsonLd: providedJsonLd } = Astro.props;
 
 const tags = [...defaultTags, ...(providedTags ? providedTags : [])];
+const jsonLd =
+	providedJsonLd ??
+	JSON.stringify({
+		"@context": "https://schema.org",
+		"@graph": [mainWebsite, blogWebsite, personSchema],
+	});
 ---
 
 <!doctype html>
@@ -53,6 +62,7 @@ const tags = [...defaultTags, ...(providedTags ? providedTags : [])];
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="canonical" href={canonicalURL} />
+		<script type="application/ld+json" set:html={jsonLd} is:inline />
 
 		<script is:inline>
 			const local = localStorage.getItem("theme");
