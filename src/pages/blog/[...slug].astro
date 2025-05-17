@@ -6,20 +6,29 @@ import { formatDate } from "../../lib/utils";
 import { blogWebsite, getArticleSchema, mainWebsite, personSchema } from "../../lib/data/structuredData";
 import Badge from "../../components/Badge.astro";
 import BlogTableOfContents from "../../components/BlogTableOfContents.astro";
+import BlogNavigationCard from "../../components/BlogNavigationCard.astro";
 
 interface Props {
 	post: CollectionEntry<"blog">;
+	previousPost: CollectionEntry<"blog"> | null;
+	nextPost: CollectionEntry<"blog"> | null;
 }
 
 export async function getStaticPaths() {
-	const blogPosts = await getCollection("blog");
+	const blogPosts = (await getCollection("blog")).sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+  console.log(blogPosts.map(post => post.id));
+
 	return blogPosts.map((post: CollectionEntry<"blog">) => ({
 		params: { slug: post.slug },
-		props: { post },
+    props: {
+      post,
+      previousPost: blogPosts[blogPosts.indexOf(post) - 1] || null,
+      nextPost: blogPosts[blogPosts.indexOf(post) + 1] || null,
+    },
 	}));
 }
 
-const { post } = Astro.props;
+const { post, previousPost, nextPost } = Astro.props;
 const { Content, headings } = await post.render();
 
 const articleStructuredData = getArticleSchema(post);
@@ -127,27 +136,23 @@ function getReadingTime(content: string) {
 </script>
 
 <Layout title={post.data.title} description={post.data.description} tags={post.data.tags} jsonLd={JSON.stringify(jsonLd)}>
-	<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+  <div id="scroll-progress" class="fixed top-16 left-0 h-1 bg-primary z-50 shadow-md transition-all" style="width: 0%"></div>
 
-	<div id="blog-header" class="flex items-center gap-4 mb-4 w-full">
+	<div id="blog-header" class="flex items-center gap-4 w-full">
 		<a class="w-fit rounded-full bg-accent-contrast p-2 ring-1 ring-muted" aria-label="Back" href="/blog/">
 			<Icon size="16" name="mdi:arrow-left" />
 		</a>
 		<span class="text-muted">|</span>
 		<p>{formatDate(post.data.date, { month: "long", year: "numeric" })} • {getReadingTime(post.body)} min read</p>
-
-		<div id="scroll-progress" class="fixed top-16 left-0 h-1 bg-primary z-50 shadow-md transition-all" style="width: 0%"></div>
 	</div>
 
 	<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-		<div id="divider" class="w-full border-t border-border md:hidden mt-12 mb-8"></div>
-
-		<article id="blog-body" class="grid col-span-1 md:col-span-3 prose dark:prose-invert mb-2 hide-scrollbar">
-			<h1 class="text-4xl font-bold mb-2">{post.data.title}</h1>
+		<article id="blog-body" class="grid col-span-1 md:col-span-3 prose dark:prose-invert hide-scrollbar">
+			<h1 class="text-4xl font-bold my-2">{post.data.title}</h1>
 
 			{
 				post.data.tags?.length && (
-					<div class="flex flex-wrap gap-2 mt-4">
+					<div class="flex flex-wrap gap-2 my-2">
 						{post.data.tags.map((tag) => (
 							<Badge>#{tag}</Badge>
 						))}
@@ -155,9 +160,22 @@ function getReadingTime(content: string) {
 				)
 			}
 
-			<p class="lead">{post.data.description}</p>
-
 			<Content />
+
+      {(previousPost || nextPost) && (
+        <div
+          class={`grid gap-4 pt-8 border-t border-border ${
+            previousPost && nextPost ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1"
+          }`}
+        >
+          {previousPost && (
+            <BlogNavigationCard label="← Previous" post={previousPost} />
+          )}
+          {nextPost && (
+            <BlogNavigationCard label="Next →" post={nextPost} />
+          )}
+        </div>
+      )}
 		</article>
     <aside
       id="blog-index"
