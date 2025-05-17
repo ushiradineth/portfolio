@@ -115,6 +115,14 @@ function getReadingTime(content: string) {
 				history.pushState(null, "", targetId);
 			});
 		});
+
+		// Show scroll progress
+		window.addEventListener("scroll", () => {
+			const scrollTop = window.scrollY;
+			const docHeight = document.body.scrollHeight - window.innerHeight;
+			const scrollPercent = (scrollTop / docHeight) * 100;
+			document.getElementById("scroll-progress").style.width = `${scrollPercent}%`;
+		});
 	});
 </script>
 
@@ -128,6 +136,7 @@ function getReadingTime(content: string) {
 		<span class="text-muted">|</span>
 		<p>{formatDate(post.data.date, { month: "long", year: "numeric" })} • {getReadingTime(post.body)} min read</p>
 
+		<div id="scroll-progress" class="fixed top-16 left-0 h-1 bg-primary z-50 shadow-md transition-all" style="width: 0%"></div>
 	</div>
 
 	<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
