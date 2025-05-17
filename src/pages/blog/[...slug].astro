@@ -4,8 +4,8 @@ import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import { formatDate } from "../../lib/utils";
 import { blogWebsite, getArticleSchema, mainWebsite, personSchema } from "../../lib/data/structuredData";
-import TableOfContents from "../../components/TableOfContents.astro";
 import Badge from "../../components/Badge.astro";
+import BlogTableOfContents from "../../components/BlogTableOfContents.astro";
 
 interface Props {
 	post: CollectionEntry<"blog">;
@@ -161,6 +161,7 @@ function getReadingTime(content: string) {
 		</article>
 		<aside id="blog-index" class="hidden md:block w-64 shrink-0 sticky top-20 h-fit border-l border-border pl-4">
 			<TableOfContents headings={headings} />
+			<BlogTableOfContents headings={headings} />
 		</aside>
 	</div>
 </Layout>
