@@ -53,6 +53,12 @@ const jsonLd = {
 	"@context": "https://schema.org",
 	"@graph": [articleStructuredData, breadcrumbsStructuredData, blogWebsite, mainWebsite, personSchema],
 };
+
+function getReadingTime(content: string) {
+	const wordsPerMinute = 200;
+	const wordCount = content.trim().split(/\s+/).length;
+	return Math.ceil(wordCount / wordsPerMinute);
+}
 ---
 
 <script>
@@ -85,7 +91,8 @@ const jsonLd = {
 			<Icon size="16" name="mdi:arrow-left" />
 		</a>
 		<span class="text-muted">|</span>
-		<p>{formatDate(post.data.date, { month: "long", year: "numeric" })}</p>
+		<p>{formatDate(post.data.date, { month: "long", year: "numeric" })} • {getReadingTime(post.body)} min read</p>
+
 	</div>
 
 	<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
