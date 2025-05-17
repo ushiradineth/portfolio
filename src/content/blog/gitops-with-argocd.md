@@ -138,15 +138,18 @@ The provided setup will deploy the ArgoCD Example App, utilizing a designated Gi
 
 In addition, the following options are used to ensure precision and control through Sync Policies in ArgoCD:
 
-- Automated Sync:
-  - prune: Removes resources from the cluster that are no longer defined in the Git repository.
-  - selfHeal: Attempts to bring the cluster state in line with the desired state.
-  - allowEmpty: Prevents synchronization if the application source is empty.
-- Sync Options:
-  - Validate=true: Validates the manifests before applying them to the cluster.
-  - PrunePropagationPolicy=foreground: Ensures that pruning occurs in the foreground.
-  - CreateNamespace=true: Creates the specified namespace if it doesn’t exist.
-  - PruneLast=true: Prunes resources in the last step of synchronization.
+- **Automated Sync:**
+
+  - `prune`: Removes resources from the cluster that are no longer defined in the Git repository.
+  - `selfHeal`: Attempts to bring the cluster state in line with the desired state.
+  - `allowEmpty`: Prevents synchronization if the application source is empty.
+
+- **Sync Options:**
+
+  - `Validate = true`: Validates the manifests before applying them to the cluster.
+  - `PrunePropagationPolicy = foreground`: Ensures that pruning occurs in the foreground.
+  - `CreateNamespace = true`: Creates the specified namespace if it doesn’t exist.
+  - `PruneLast = true`: Prunes resources in the last step of synchronization.
 
 ## GitOps Workflow with ArgoCD
 
