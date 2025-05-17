@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import { formatDate } from "../../lib/utils";
 import { blogWebsite, getArticleSchema } from "../../lib/data/structuredData";
+import TableOfContents from "../../components/TableOfContents.astro";
 
 interface Props {
 	post: CollectionEntry<"blog">;
@@ -86,25 +87,11 @@ const jsonLd = {
 		<article id="blog-body" class="grid col-span-1 md:col-span-3 prose dark:prose-invert mb-2 hide-scrollbar">
 			<h1 class="text-4xl font-bold mb-2">{post.data.title}</h1>
 			<p class="lead">{post.data.description}</p>
+
 			<Content />
 		</article>
-
-		<div id="blog-index" class="grid order-first md:order-last col-span-1 text-sm border-border md:border-l h-fit sticky">
-			<div class="flex flex-col gap-4 min-w-0 my-2 mx-4">
-				<h2 class="text-muted">Contents</h2>
-				<div class="flex flex-col gap-2 text-red-300">
-					{
-						headings.map((heading) => (
-							<a
-								href={`#${heading.slug}`}
-								style={`margin-left: ${(heading.depth - 1) * 10}px`}
-								class="text-text hover:text-primary text-ellipsis truncate">
-								{heading.text}
-							</a>
-						))
-					}
-				</div>
-			</div>
-		</div>
+		<aside id="blog-index" class="hidden md:block w-64 shrink-0 sticky top-20 h-fit border-l border-border pl-4">
+			<TableOfContents headings={headings} />
+		</aside>
 	</div>
 </Layout>

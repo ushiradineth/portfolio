@@ -1,0 +1,77 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+	headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+---
+
+<div class="flex flex-col gap-4">
+	<h2 class="text-muted text-sm font-semibold">Contents</h2>
+	<nav id="toc" class="flex flex-col gap-2 text-sm">
+		{
+			headings.map((heading) => (
+				<a
+					href={`#${heading.slug}`}
+					data-slug={heading.slug}
+					style={`margin-left: ${(heading.depth - 1) * 10}px`}
+					class="text-muted hover:text-primary transition-all text-ellipsis truncate">
+					{heading.text}
+				</a>
+			))
+		}
+	</nav>
+</div>
+
+<!--Needs to re-run on each page load to evaluate the headings per blog-->
+<script is:inline>
+	function initTOCObserver() {
+		const tocLinks = document.querySelectorAll("#toc a");
+		const headings = Array.from(document.querySelectorAll("article h2, article h3"));
+
+		if (!headings.length) return;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const visible = entries
+					.filter((entry) => entry.isIntersecting)
+					.sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top);
+
+				if (visible.length > 0) {
+					const id = visible[0].target.getAttribute("id");
+
+					tocLinks.forEach((link) => {
+						link.classList.toggle("underline", link.dataset.slug === id);
+					});
+				}
+			},
+			{ threshold: 0.1, rootMargin: "0px 0px -60% 0px" },
+		);
+
+		headings.forEach((heading) => observer.observe(heading));
+
+		// Manual highlight when a link is clicked
+		tocLinks.forEach((link) => {
+			link.addEventListener("click", (e) => {
+				e.preventDefault();
+
+				const slug = link.dataset.slug;
+				const target = document.getElementById(slug);
+				if (!target) return;
+
+				const headerOffset = document.getElementById("header")?.offsetHeight ?? 64;
+				const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+				window.scrollTo({ top, behavior: "smooth" });
+
+				// Highlight manually (temporary until IntersectionObserver kicks in)
+				tocLinks.forEach((l) => l.classList.remove("underline"));
+				link.classList.add("underline");
+			});
+		});
+	}
+
+	initTOCObserver();
+</script>
