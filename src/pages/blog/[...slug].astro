@@ -61,23 +61,58 @@ function getReadingTime(content: string) {
 }
 ---
 
-<script>
-	document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) => {
-		anchor.addEventListener("click", function (e: MouseEvent) {
-			e.preventDefault();
+<script is:inline>
+	window.addEventListener("DOMContentLoaded", () => {
+		const headerOffset = document.getElementById("header")?.offsetHeight ?? 64;
 
-			const targetId = (anchor.getAttribute("href") as string) ?? "";
-			const targetElement = document.querySelector(targetId) as HTMLElement | null;
+		// Inject anchor links next to headings
+		const levels = ["h2", "h3", "h4", "h5", "h6"];
+		const headings = document.querySelectorAll(levels.map((tag) => `article ${tag}[id]`).join(","));
 
-			if (!targetElement) return;
+		// Add anchor links to headings
+		headings.forEach((heading) => {
+			const id = heading.getAttribute("id");
+			if (!id) return;
 
-			const headerOffset = document.getElementById("header")?.offsetHeight ?? 64;
-			const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-			const offsetPosition = elementPosition - headerOffset;
+			// Avoid duplicates
+			if (heading.querySelector(".anchor-link")) return;
 
-			window.scrollTo({
-				top: offsetPosition,
-				behavior: "smooth",
+			// Create # anchor
+			const anchor = document.createElement("a");
+			anchor.href = `#${id}`;
+			anchor.textContent = "#";
+			anchor.className = "anchor-link opacity-0 ml-2 group-hover:opacity-100 text-muted hover:text-primary transition";
+
+			// Accessibility
+			anchor.setAttribute("aria-label", `Link to heading ${heading.textContent?.trim()}`);
+			anchor.setAttribute("tabindex", "0");
+			anchor.setAttribute("role", "link");
+			anchor.classList.add("focus:outline-none", "focus:opacity-100", "focus-visible:ring", "focus-visible:ring-primary");
+
+			// Add layout classes to heading
+			heading.setAttribute("tabindex", "-1");
+			heading.classList.add("group", "relative");
+			heading.appendChild(anchor);
+		});
+
+		// Smooth scroll with offset for all in-page # links
+		document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+			anchor.addEventListener("click", function (e) {
+				const targetId = anchor.getAttribute("href");
+				const targetElement = document.querySelector(targetId);
+				if (!targetElement) return;
+
+				e.preventDefault();
+
+				const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+				const offsetPosition = elementPosition - headerOffset;
+
+				window.scrollTo({
+					top: offsetPosition,
+					behavior: "smooth",
+				});
+
+				history.pushState(null, "", targetId);
 			});
 		});
 	});
