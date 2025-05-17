@@ -14,17 +14,11 @@ interface Props {
 	jsonLd?: string;
 }
 
-const pathname = `${
-	Astro.url.pathname === "/"
-		? "index"
-		: Astro.url.pathname[Astro.url.pathname.length - 1] === "/"
-			? Astro.url.pathname.substring(0, Astro.url.pathname.length - 1)
-			: Astro.url.pathname
-}`;
+const pathname = Astro.url.pathname.endsWith("/") ? Astro.url.pathname.slice(0, -1) : Astro.url.pathname || "index";
 
 const siteURL = Astro.site?.toString() ?? "";
 const site = siteURL[siteURL.length - 1] === "/" ? siteURL.substring(0, siteURL.length - 1) : Astro.site;
-const ogImage = `${site}/og${pathname}.png/`;
+const ogImage = new URL(`/og${pathname}.png`, site).toString();
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const defaultTags = ["Ushira Dineth", "Software Engineer", "Portfolio"];
 
@@ -49,6 +43,7 @@ const jsonLd =
 		<meta name="keywords" content={tags.join(", ")} />
 		<meta name="author" content="Ushira Dineth" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="robots" content="index, follow" />
 		<meta property="og:title" content={title} />
 		<meta property="og:image" content={ogImage} />
 		<meta property="og:type" content="profile" />
@@ -209,7 +204,7 @@ const jsonLd =
 		<ViewTransitions />
 	</head>
 	<body class="flex flex-col items-center font-roboto tracking-tight text-pretty text-text">
-		<main class="flex w-full justify-center">
+		<main role="main" id="main-content" class="flex w-full justify-center">
 			<div id="content" class="flex flex-col min-h-screen max-w-[1080px] w-full">
 				<Header transition:persist />
 				<main class="flex min-w-[50%] flex-col gap-4 py-8 px-4">
