@@ -5,6 +5,7 @@ import { Icon } from "astro-icon/components";
 import { formatDate } from "../../lib/utils";
 import { blogWebsite, getArticleSchema, mainWebsite, personSchema } from "../../lib/data/structuredData";
 import TableOfContents from "../../components/TableOfContents.astro";
+import Badge from "../../components/Badge.astro";
 
 interface Props {
 	post: CollectionEntry<"blog">;
@@ -92,6 +93,17 @@ const jsonLd = {
 
 		<article id="blog-body" class="grid col-span-1 md:col-span-3 prose dark:prose-invert mb-2 hide-scrollbar">
 			<h1 class="text-4xl font-bold mb-2">{post.data.title}</h1>
+
+			{
+				post.data.tags?.length && (
+					<div class="flex flex-wrap gap-2 mt-4">
+						{post.data.tags.map((tag) => (
+							<Badge>#{tag}</Badge>
+						))}
+					</div>
+				)
+			}
+
 			<p class="lead">{post.data.description}</p>
 
 			<Content />
