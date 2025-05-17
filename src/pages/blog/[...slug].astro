@@ -16,15 +16,15 @@ interface Props {
 
 export async function getStaticPaths() {
 	const blogPosts = (await getCollection("blog")).sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
-  console.log(blogPosts.map(post => post.id));
+	console.log(blogPosts.map((post) => post.id));
 
 	return blogPosts.map((post: CollectionEntry<"blog">) => ({
 		params: { slug: post.slug },
-    props: {
-      post,
-      previousPost: blogPosts[blogPosts.indexOf(post) - 1] || null,
-      nextPost: blogPosts[blogPosts.indexOf(post) + 1] || null,
-    },
+		props: {
+			post,
+			previousPost: blogPosts[blogPosts.indexOf(post) - 1] || null,
+			nextPost: blogPosts[blogPosts.indexOf(post) + 1] || null,
+		},
 	}));
 }
 
@@ -136,7 +136,7 @@ function getReadingTime(content: string) {
 </script>
 
 <Layout title={post.data.title} description={post.data.description} tags={post.data.tags} jsonLd={JSON.stringify(jsonLd)}>
-  <div id="scroll-progress" class="fixed top-16 left-0 h-1 bg-primary z-50 shadow-md transition-all" style="width: 0%"></div>
+	<div id="scroll-progress" class="fixed top-16 left-0 h-1 bg-primary z-50 shadow-md transition-all" style="width: 0%"></div>
 
 	<div id="blog-header" class="flex items-center gap-4 w-full">
 		<a class="w-fit rounded-full bg-accent-contrast p-2 ring-1 ring-muted" aria-label="Back" href="/blog/">
@@ -162,25 +162,16 @@ function getReadingTime(content: string) {
 
 			<Content />
 
-      {(previousPost || nextPost) && (
-        <div
-          class={`grid gap-4 pt-8 border-t border-border ${
-            previousPost && nextPost ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1"
-          }`}
-        >
-          {previousPost && (
-            <BlogNavigationCard label="← Previous" post={previousPost} />
-          )}
-          {nextPost && (
-            <BlogNavigationCard label="Next →" post={nextPost} />
-          )}
-        </div>
-      )}
+			{
+				(previousPost || nextPost) && (
+					<div class={`grid gap-4 pt-8 border-t border-border ${previousPost && nextPost ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1"}`}>
+						{previousPost && <BlogNavigationCard label="← Previous" post={previousPost} />}
+						{nextPost && <BlogNavigationCard label="Next →" post={nextPost} />}
+					</div>
+				)
+			}
 		</article>
-    <aside
-      id="blog-index"
-      class="hidden md:block shrink-0 sticky top-20 h-fit border-l border-border pl-4 overflow-x-hidden"
-    >
+		<aside id="blog-index" class="hidden md:block shrink-0 sticky top-20 h-fit border-l border-border pl-4 overflow-x-hidden">
 			<BlogTableOfContents headings={headings} />
 		</aside>
 	</div>
