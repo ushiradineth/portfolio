@@ -6,8 +6,6 @@ date: 2024-02-20
 tags: ["GitOps", "ArgoCD", "Terrafrom", "Kubernetes", "CI/CD"]
 ---
 
----
-
 ## Prerequisites
 
 Before continuing in this article, you should have the following:
