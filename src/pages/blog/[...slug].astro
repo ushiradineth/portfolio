@@ -125,14 +125,15 @@ function getReadingTime(content: string) {
 			});
 		});
 
-		// Show scroll progress
-		window.addEventListener("scroll", () => {
-			const scrollTop = window.scrollY;
-			const docHeight = document.body.scrollHeight - window.innerHeight;
-			const scrollPercent = (scrollTop / docHeight) * 100;
-			document.getElementById("scroll-progress").style.width = `${scrollPercent}%`;
-		});
 	});
+
+  // Show scroll progress
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    document.getElementById("scroll-progress").style.width = `${scrollPercent}%`;
+  });
 </script>
 
 <Layout title={post.data.title} description={post.data.description} tags={post.data.tags} jsonLd={JSON.stringify(jsonLd)}>
