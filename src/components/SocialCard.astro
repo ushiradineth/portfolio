@@ -14,10 +14,10 @@ const { social } = Astro.props;
 	<a href={social.href} class="flex flex-col p-6">
 		<div class="flex items-center justify-center">
 			<div class="flex items-center justify-center gap-2">
+				<p class="font-light"><Icon name={social.icon} /><p class="text-green-400 dark:text-green-500">•</p></p>
 				<h2 class="text-xl font-semibold">
 					{social.title}
 				</h2>
-				<p class="font-light"><Icon name={social.icon} /><p class="text-green-400 dark:text-green-500">•</p></p>
 			</div>
 			<div class="ml-auto transition-transform duration-300 group-hover:-rotate-12">&rarr;</div>
 		</div>

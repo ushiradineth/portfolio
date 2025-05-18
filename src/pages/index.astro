@@ -32,9 +32,9 @@ import { images } from "../lib/data/images";
 		<ImageGallery images={images} />
 	</span>
 
-	<div class="flex flex-col gap-4">
-		<p>Below are the other places you can find me;</p>
-		<div class="grid h-full w-full grid-cols-1 justify-between gap-2 md:grid-cols-3">
+	<div class="flex flex-col gap-4 pt-12">
+		<p>Elsewhere on the internet:</p>
+		<div class="grid h-full w-full grid-cols-1 justify-between gap-2 md:grid-cols-2">
 			{socials.map((social) => <SocialCard social={social} />)}
 		</div>
 	</div>
