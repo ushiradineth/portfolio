@@ -4,6 +4,7 @@ import "@fontsource-variable/roboto-mono";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { ViewTransitions } from "astro:transitions";
+import Analytics from '@vercel/analytics/astro'
 
 import { blogWebsite, mainWebsite, personSchema } from "../lib/data/structuredData";
 
@@ -211,6 +212,7 @@ const jsonLd =
 					<slot />
 				</main>
 				<Footer />
+        <Analytics/>
 			</div>
 			<div id="background" class="flex fixed -z-10 bg-sky-200 h-full w-full flex-col gap-4 custom-gradient">
 				<svg width="0" height="0">
