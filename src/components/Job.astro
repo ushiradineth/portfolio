@@ -18,12 +18,11 @@ const { job } = Astro.props;
 			<a href={job.href} class="group w-fit">
 				<Underline>
 					<span class="flex items-center justify-center gap-2">
-						<h2 class="text-xl font-medium">{job.company}</h2>
-						<div class="transition-transform duration-500 ease-in-out group-hover:-rotate-12">&rarr;</div>
+						<h2 class="text-xl font-medium">{job.designation}</h2>
 					</span>
 				</Underline>
 			</a>
-			<p class="hidden text-muted sm:block">{job.designation} • {job.period}</p>
+			<p class="hidden text-muted sm:block">{job.company} • {job.period}</p>
 		</div>
 	</div>
 	<p class="text-muted sm:hidden">{job.designation} • {job.period}</p>
