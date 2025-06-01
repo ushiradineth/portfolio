@@ -8,7 +8,7 @@ import { border } from "../../lib/utils";
 
 <Layout title="Blog Posts" description="ushira.com">
 	<Title>Blog Posts</Title>
-	<div class="flex flex-col w-full">
+	<div class="flex w-full flex-col">
 		{blogs.map((blog, index) => <BlogItem blog={blog} class={`border-border ${border(index, blogs.length)}`} />)}
 	</div>
 </Layout>

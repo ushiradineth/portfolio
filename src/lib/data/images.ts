@@ -13,16 +13,16 @@ import twelwe from "../../images/gallery/12.jpeg";
 import type { ImageCollection } from "../types";
 
 export const images: ImageCollection[] = [
-  { file: one, alt: "Tea Castle" },
-  { file: two, alt: "River infront of a mountain" },
-  { file: three, alt: "Picture through a speedboat of a river" },
-  { file: four, alt: "Hike pathway" },
-  { file: five, alt: "Tall tree" },
-  { file: six, alt: "Tall trees" },
-  { file: seven, alt: "Overlooking road from a mountain" },
-  { file: eight, alt: "Person standing infront of a waterfall" },
-  { file: nine, alt: "Grassland with mist" },
-  { file: ten, alt: "Waterfall" },
-  { file: eleven, alt: "Grassland with a small waterfall" },
-  { file: twelwe, alt: "Strawberry flavored sweets" },
+	{ file: one, alt: "Tea Castle" },
+	{ file: two, alt: "River infront of a mountain" },
+	{ file: three, alt: "Picture through a speedboat of a river" },
+	{ file: four, alt: "Hike pathway" },
+	{ file: five, alt: "Tall tree" },
+	{ file: six, alt: "Tall trees" },
+	{ file: seven, alt: "Overlooking road from a mountain" },
+	{ file: eight, alt: "Person standing infront of a waterfall" },
+	{ file: nine, alt: "Grassland with mist" },
+	{ file: ten, alt: "Waterfall" },
+	{ file: eleven, alt: "Grassland with a small waterfall" },
+	{ file: twelwe, alt: "Strawberry flavored sweets" },
 ];

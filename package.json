@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint --fix",
-    "fmt": "prettier --write '**/*.astro'"
+    "format": "prettier --write --ignore-path .gitignore --config .prettierrc.json .",
+    "check": "pnpm format && pnpm lint && pnpm build"
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",

@@ -205,18 +205,18 @@ const jsonLd =
 
 		<ViewTransitions />
 	</head>
-	<body class="flex flex-col items-center font-roboto tracking-tight text-pretty text-text">
+	<body class="flex flex-col items-center text-pretty font-roboto tracking-tight text-text">
 		<main role="main" id="main-content" class="flex w-full justify-center">
-			<div id="content" class="flex flex-col min-h-screen max-w-[1080px] w-full">
+			<div id="content" class="flex min-h-screen w-full max-w-[1080px] flex-col">
 				<Header transition:persist />
-				<main class="flex min-w-[50%] flex-col gap-4 py-8 px-4">
+				<main class="flex min-w-[50%] flex-col gap-4 px-4 py-8">
 					<slot />
 				</main>
 				<Footer />
 				<Analytics />
 				<SpeedInsights />
 			</div>
-			<div id="background" class="flex fixed -z-10 bg-sky-200 h-full w-full flex-col gap-4 custom-gradient">
+			<div id="background" class="custom-gradient fixed -z-10 flex h-full w-full flex-col gap-4 bg-sky-200">
 				<svg width="0" height="0">
 					<filter id="grainy" x="0" y="0" width="100%" height="100%">
 						<feTurbulence type="fractalNoise" baseFrequency="1"></feTurbulence>

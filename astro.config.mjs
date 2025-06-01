@@ -9,31 +9,31 @@ import rehypeSlug from "rehype-slug";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
 
 const rehypeConfig = {
-  syntaxHighlight: false,
-  rehypePlugins: [
-    rehypeSlug,
-    [
-      rehypePrettyCode,
-      {
-        theme: {
-          dark: "github-dark-dimmed",
-          light: "github-light",
-        },
-        transformers: [
-          transformerCopyButton({
-            visibility: "hover",
-            feedbackDuration: 2_500,
-          }),
-        ],
-      },
-    ],
-  ],
+	syntaxHighlight: false,
+	rehypePlugins: [
+		rehypeSlug,
+		[
+			rehypePrettyCode,
+			{
+				theme: {
+					dark: "github-dark-dimmed",
+					light: "github-light",
+				},
+				transformers: [
+					transformerCopyButton({
+						visibility: "hover",
+						feedbackDuration: 2_500,
+					}),
+				],
+			},
+		],
+	],
 };
 
 export default defineConfig({
-  integrations: [tailwind(), sitemap(), robotsTxt(), icon()],
-  markdown: rehypeConfig,
-  output: "static",
-  site: "https://ushira.com",
-  adapter: vercelStatic(),
+	integrations: [tailwind(), sitemap(), robotsTxt(), icon()],
+	markdown: rehypeConfig,
+	output: "static",
+	site: "https://ushira.com",
+	adapter: vercelStatic(),
 });

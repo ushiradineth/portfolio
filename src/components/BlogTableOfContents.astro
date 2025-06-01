@@ -9,7 +9,7 @@ const { headings } = Astro.props;
 ---
 
 <div class="flex flex-col gap-4">
-	<h2 class="text-muted text-sm font-semibold">Index</h2>
+	<h2 class="text-sm font-semibold text-muted">Index</h2>
 	<nav id="toc" class="flex flex-col gap-2 text-sm">
 		{
 			headings.map((heading) => (
@@ -17,7 +17,7 @@ const { headings } = Astro.props;
 					href={`#${heading.slug}`}
 					data-slug={heading.slug}
 					style={`margin-left: ${(heading.depth - 1) * 10}px`}
-					class="text-muted hover:text-primary transition-all text-ellipsis truncate">
+					class="truncate text-ellipsis text-muted transition-all hover:text-primary">
 					{heading.text}
 				</a>
 			))

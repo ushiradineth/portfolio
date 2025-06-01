@@ -12,10 +12,10 @@ const { label, post } = Astro.props;
 
 <a
 	href={`/blog/${post.slug}`}
-	class="group block p-4 rounded-xl ring-1 ring-border hover:ring-primary transition-all no-underline"
+	class="group block rounded-xl p-4 no-underline ring-1 ring-border transition-all hover:ring-primary"
 	aria-label={`Read ${label.toLowerCase()} post: ${post.data.title}`}>
 	<p class="text-xs text-muted">{label}</p>
-	<h2 class="text-base font-semibold text-text group-hover:text-primary transition">
+	<h2 class="text-base font-semibold text-text transition group-hover:text-primary">
 		{post.data.title}
 	</h2>
 	{
@@ -27,5 +27,5 @@ const { label, post } = Astro.props;
 			</div>
 		)
 	}
-	<p class="text-sm text-muted line-clamp-2">{post.data.description}</p>
+	<p class="line-clamp-2 text-sm text-muted">{post.data.description}</p>
 </a>
